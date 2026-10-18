@@ -1,0 +1,320 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/assigned.html"
+        ],
+        "createdAt": "2026-10-16T01:59:05.921Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/model-pick.html"
+        ],
+        "createdAt": "2026-10-16T01:59:05.942Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-film.html"
+        ],
+        "createdAt": "2026-10-16T01:59:05.959Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/assigned.html"
+        ],
+        "createdAt": "2026-10-16T01:59:05.978Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage; contrast is enforced in the real build"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/model-pick.html"
+        ],
+        "createdAt": "2026-10-16T01:59:05.997Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage; contrast is enforced in the real build"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/canon.html"
+        ],
+        "createdAt": "2026-10-16T01:59:06.017Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage; contrast is enforced in the real build"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-pulp.html"
+        ],
+        "createdAt": "2026-10-16T01:59:06.036Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage; contrast is enforced in the real build"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-darkroom.html"
+        ],
+        "createdAt": "2026-10-16T01:59:06.059Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage; contrast is enforced in the real build"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-citypop.html"
+        ],
+        "createdAt": "2026-10-16T01:59:06.081Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage; contrast is enforced in the real build"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-forge.html"
+        ],
+        "createdAt": "2026-10-16T01:59:06.102Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage; forge heat glow is the challenger's own material"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-citypop.html"
+        ],
+        "createdAt": "2026-10-16T01:59:06.122Z",
+        "reason": "decision-round mock fixture (1440x900 screenshot frame), not shipped; agent triage; chrome script logotype is the city-pop grammar"
+      },
+      {
+        "rule": "overused-font",
+        "value": "montserrat",
+        "createdAt": "2026-10-16T02:00:57.082Z",
+        "reason": "brand commitment: brand/BRAND.md §4"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/assigned.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.367Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-pulp.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.385Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/assigned.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.405Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-pulp.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.423Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-film.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.444Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/assigned.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.468Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-film.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.490Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-pulp.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.513Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "skipped-heading",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/canon.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.535Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "wide-tracking",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-citypop.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.558Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "wide-tracking",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-film.html"
+        ],
+        "createdAt": "2026-10-16T02:00:57.581Z",
+        "reason": "decision-round mock fixture, not shipped; agent triage"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "dist/index.html"
+        ],
+        "createdAt": "2026-10-16T02:21:01.915Z",
+        "reason": "false positive: detector reads unresolved clamp() sizes as 16px; h1/h2 render 43-86px (agent triage, screenshots in .impeccable/review)"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "dist/voluntariados/index.html"
+        ],
+        "createdAt": "2026-10-16T02:21:01.940Z",
+        "reason": "false positive: detector reads unresolved clamp() sizes as 16px; h1/h2 render 43-86px (agent triage, screenshots in .impeccable/review)"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/src/challenger-bbs.html"
+        ],
+        "createdAt": "2026-10-16T04:32:47.888Z",
+        "reason": "decision-round mock of a declined challenger (BBS world), not shipped; agent triage"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "brand/propuesta-ig/src/slide-1.html"
+        ],
+        "createdAt": "2026-10-18T21:18:47.550Z",
+        "reason": "fixed 1080x1350 social-media canvas rendered to PNG, not a web page (body clip is the canvas; outlined white display text on lima); agent triage"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "brand/propuesta-ig/src/slide-1.html"
+        ],
+        "createdAt": "2026-10-18T21:18:47.569Z",
+        "reason": "fixed 1080x1350 social-media canvas rendered to PNG, not a web page (body clip is the canvas; outlined white display text on lima); agent triage"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "brand/propuesta-ig/src/slide-1.html"
+        ],
+        "createdAt": "2026-10-18T21:18:47.591Z",
+        "reason": "fixed 1080x1350 social-media canvas rendered to PNG, not a web page (body clip is the canvas; outlined white display text on lima); agent triage"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "brand/propuesta-ig/src/slide-2.html"
+        ],
+        "createdAt": "2026-10-18T21:18:47.611Z",
+        "reason": "fixed 1080x1350 social-media canvas rendered to PNG, not a web page (body clip is the canvas; outlined white display text on lima); agent triage"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "brand/propuesta-ig/src/slide-2.html"
+        ],
+        "createdAt": "2026-10-18T21:18:47.648Z",
+        "reason": "fixed 1080x1350 social-media canvas rendered to PNG, not a web page (body clip is the canvas; outlined white display text on lima); agent triage"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "brand/propuesta-ig/src/slide-2.html"
+        ],
+        "createdAt": "2026-10-18T21:18:47.668Z",
+        "reason": "fixed 1080x1350 social-media canvas rendered to PNG, not a web page (body clip is the canvas; outlined white display text on lima); agent triage"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "brand/propuesta-ig/src/slide-3.html"
+        ],
+        "createdAt": "2026-10-18T21:18:47.687Z",
+        "reason": "fixed 1080x1350 social-media canvas rendered to PNG, not a web page (body clip is the canvas; outlined white display text on lima); agent triage"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "brand/propuesta-ig/src/slide-3.html"
+        ],
+        "createdAt": "2026-10-18T21:18:47.707Z",
+        "reason": "fixed 1080x1350 social-media canvas rendered to PNG, not a web page (body clip is the canvas; outlined white display text on lima); agent triage"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "brand/propuesta-ig/src/slide-3.html"
+        ],
+        "createdAt": "2026-10-18T21:18:47.729Z",
+        "reason": "fixed 1080x1350 social-media canvas rendered to PNG, not a web page (body clip is the canvas; outlined white display text on lima); agent triage"
+      }
+    ]
+  }
+}

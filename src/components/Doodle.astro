@@ -1,0 +1,20 @@
+---
+// Garabatos a mano del lenguaje de BUC: onda verde, rayitas de énfasis y corazón.
+interface Props { kind: 'squiggle' | 'rays' | 'heart' | 'sparkle'; class?: string; style?: string }
+const { kind, class: cls, style } = Astro.props;
+---
+{kind === 'squiggle' && (
+  <svg class:list={['doodle squiggle', cls]} style={style} viewBox="0 0 260 40" fill="none" aria-hidden="true"><path d="M6 20c16-18 32-18 48 0s32 18 48 0 32-18 48 0 32 18 48 0 32-18 48 0" stroke="currentColor" stroke-width="7" stroke-linecap="round" /></svg>
+)}
+{kind === 'rays' && (
+  <svg class:list={['doodle doodle-sol', cls]} style={style} viewBox="0 0 70 70" fill="none" aria-hidden="true"><path d="M12 60 26 14M36 63l7-52M56 60l7-38" stroke="currentColor" stroke-width="7" stroke-linecap="round" /></svg>
+)}
+{kind === 'heart' && (
+  <svg class:list={['doodle heart', cls]} style={style} viewBox="0 0 40 36" aria-hidden="true"><path d="M20 34S3 23.5 3 12A9 9 0 0 1 20 7a9 9 0 0 1 17 5c0 11.5-17 22-17 22z" fill="currentColor" /></svg>
+)}
+{kind === 'sparkle' && (
+  <svg class:list={['doodle', cls]} style={style} viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 4v10M20 26v10M4 20h10M26 20h10M9 9l5 5M26 26l5 5M31 9l-5 5M14 26l-5 5" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" /></svg>
+)}
+<style>
+  .doodle { position: absolute; pointer-events: none; }
+</style>

@@ -1,0 +1,236 @@
+{
+ "title": "Elige el mundo visual de la web de BUC",
+ "question": "El sorteo asignó «Afiche chicha limeño». Cada tarjeta trae una previsualización (maqueta HTML de la primera pantalla con contenido real de BUC). Quédate con la asignada, toma otra o vuelve a sortear.",
+ "options": [
+  {
+   "id": "assigned",
+   "label": "Afiche chicha limeño",
+   "kicker": "THE ROLL",
+   "lineage": "Carteles chicha fluorescentes pegados en los muros de Lima (anuncios de eventos)",
+   "thesis": "Cada convocatoria y cada jornada es un afiche de evento pegado en el muro de la ciudad.",
+   "palette": [
+    "#161616",
+    "#84CC2C",
+    "#FCDC62",
+    "#A6D86C",
+    "#E84040",
+    "#43D029"
+   ],
+   "materials": [
+    "franjas de tinta fluorescente sobre negro",
+    "papel de afiche pegado en muro",
+    "tipografía display a máxima escala"
+   ],
+   "viewport": "Muro negro con un afiche gigante a sangre en franjas: «¡GRAN CONVOCATORIA! BUSCANDO BUCCITOS DE CORAZÓN». El botón Postula es la franja inferior y los afiches de las próximas jornadas asoman pegados al borde.",
+   "risk": "Ejecutado con timidez parece una parodia de cumbia. Exige franjas tipográficas a máxima escala y la paleta BUC sin el rosa chicha.",
+   "raised": [
+    {
+     "from": "challenger-film",
+     "raise": "Un solo proceso de imagen: todas las fotos salen en el mismo duotono noche + verde, como de un mismo tiraje, y recuperan el color al activarse."
+    },
+    {
+     "from": "challenger-pulp",
+     "raise": "Cada afiche de jornada tiene tres niveles fijos (gancho, título, dato de fecha, lugar y hora) siempre en la misma posición."
+    },
+    {
+     "from": "challenger-bbs",
+     "raise": "Los cupos son escasos y se ven: cada jornada muestra su estado en el muro (abierta, últimos cupos, cerrada, ya pasó)."
+    },
+    {
+     "from": "challenger-darkroom",
+     "raise": "La postulación avanza por estaciones fijas y muestra antes de empezar todo lo que se va a pedir."
+    },
+    {
+     "from": "challenger-forge",
+     "raise": "Las cifras reales (6 meses, 15 años, +1000 postulantes) van como medidas en numerales grandes y tabulares."
+    },
+    {
+     "from": "challenger-citypop",
+     "raise": "Todo cuelga de una sola línea de muro donde se pegan los afiches, y esa línea ordena cada sección."
+    }
+   ],
+   "comp": ".impeccable/mocks/decision/assigned.webp"
+  },
+  {
+   "id": "model-pick",
+   "label": "Álbum de jornadas",
+   "kicker": "IMPECCABLE’S PICK",
+   "lineage": "Los propios carruseles de BUC: papel lima arrugado, polaroids con cinta, stickers recortados",
+   "thesis": "La web como el álbum de recortes que los buccitos ya arman en Instagram.",
+   "palette": [
+    "#A6D86C",
+    "#185C0C",
+    "#F7F5EE",
+    "#84CC2C",
+    "#E84040"
+   ],
+   "materials": [
+    "papel lima arrugado",
+    "polaroids con cinta y clip",
+    "recortes con borde blanco",
+    "garabatos a mano"
+   ],
+   "viewport": "Hoja de papel lima con una polaroid grande de una jornada, el título «¿Te sumas a transformar amor en acción?» en stickers y el botón Postula como un chip verde bosque.",
+   "risk": "Es la dirección más familiar: repite el Instagram de BUC y es donde aterrizaría casi cualquier propuesta para esta marca.",
+   "comp": ".impeccable/mocks/decision/model-pick.webp"
+  },
+  {
+   "id": "challenger-film",
+   "label": "Película 16 mm revelada a mano",
+   "verdict": "declined",
+   "lineage": "Película de 16 mm con rayas y fugas de luz",
+   "thesis": "Cada jornada como un fotograma quemado por la luz.",
+   "palette": [
+    "#1A1A1A",
+    "#9A9A9A",
+    "#E8762C"
+   ],
+   "materials": [
+    "grano de emulsión",
+    "perforaciones"
+   ],
+   "viewport": "Una tira de fotogramas de jornadas con una fuga de luz naranja.",
+   "case": "Encaja mal: un joven de Lima no se reconoce en el revelado artesanal, y la convocatoria se pierde.",
+   "kept": "Un solo proceso de imagen para todas las fotos.",
+   "risk": "Es de cine de autor, no voluntariado.",
+   "comp": ".impeccable/mocks/decision/challenger-film.webp"
+  },
+  {
+   "id": "challenger-pulp",
+   "label": "Exhibidor de novelas pulp",
+   "verdict": "declined",
+   "lineage": "Exhibidor giratorio de novelas de bolsillo",
+   "thesis": "Las jornadas como portadas que giran en un exhibidor.",
+   "palette": [
+    "#1B2A52",
+    "#F5D64C",
+    "#C8312C",
+    "#F0E6D2"
+   ],
+   "materials": [
+    "portadas pintadas",
+    "alambre"
+   ],
+   "viewport": "Una jornada de frente y las demás de lomo.",
+   "case": "Hojear jornadas como portadas es claro, pero la estética pulp no habla al público.",
+   "kept": "Tres niveles fijos de texto en cada afiche.",
+   "risk": "Tono noir ajeno a la marca.",
+   "comp": ".impeccable/mocks/decision/challenger-pulp.webp"
+  },
+  {
+   "id": "challenger-bbs",
+   "label": "BBS ANSI nocturno",
+   "verdict": "declined",
+   "lineage": "Tablones de anuncios por módem en modo texto",
+   "thesis": "Un tablón en modo texto donde la comunidad se ve conectada.",
+   "palette": [
+    "#000000",
+    "#00C0C0",
+    "#C000C0",
+    "#FFFFFF"
+   ],
+   "materials": [
+    "rejilla de caracteres",
+    "bloques ANSI"
+   ],
+   "viewport": "Pantalla de título ANSI con menú numerado.",
+   "case": "Los jóvenes de 2026 no lo reconocen y oculta la convocatoria.",
+   "kept": "Los cupos escasos como estado visible.",
+   "risk": "Pura nostalgia técnica.",
+   "comp": ".impeccable/mocks/decision/challenger-bbs.webp"
+  },
+  {
+   "id": "challenger-darkroom",
+   "label": "Cuarto oscuro",
+   "verdict": "declined",
+   "lineage": "Revelado bajo luz de seguridad ámbar",
+   "thesis": "La postulación se revela paso a paso.",
+   "palette": [
+    "#C8741E",
+    "#2A2A2A",
+    "#E8E4DC"
+   ],
+   "materials": [
+    "luz ámbar",
+    "papel fotográfico mojado"
+   ],
+   "viewport": "Bandejas de revelado donde aparece una foto de jornada.",
+   "case": "El ámbar choca con la marca verde y el ritual no es del público.",
+   "kept": "Estaciones fijas con vista previa antes de comprometerse.",
+   "risk": "Lento y sombrío.",
+   "comp": ".impeccable/mocks/decision/challenger-darkroom.webp"
+  },
+  {
+   "id": "challenger-forge",
+   "label": "Forja de herrero",
+   "verdict": "declined",
+   "lineage": "Barra de hierro bajo el martillo",
+   "thesis": "Cada jornada como un golpe que da forma.",
+   "palette": [
+    "#121212",
+    "#6E6E6E",
+    "#E8501C"
+   ],
+   "materials": [
+    "hierro al rojo",
+    "escamas negras"
+   ],
+   "viewport": "Una barra incandescente con cifras de fuerza.",
+   "case": "Industrial y duro; contradice la calidez de «corazón verde».",
+   "kept": "Las cifras reales como medidas tabulares.",
+   "risk": "Frialdad industrial.",
+   "comp": ".impeccable/mocks/decision/challenger-forge.webp"
+  },
+  {
+   "id": "challenger-citypop",
+   "label": "Portada city-pop aerografiada",
+   "verdict": "declined",
+   "lineage": "Portadas de discos city-pop japoneses",
+   "thesis": "La Costa Verde como un atardecer aerografiado.",
+   "palette": [
+    "#F4B49A",
+    "#E88AA8",
+    "#9CC8E8",
+    "#5CC8C0"
+   ],
+   "materials": [
+    "degradado aerografiado",
+    "cromo"
+   ],
+   "viewport": "Horizonte de mar al atardecer con el logo cromado.",
+   "case": "Es bonito, pero ni la paleta ni la cultura son de BUC.",
+   "kept": "Una sola línea que ordena todas las secciones.",
+   "risk": "Pastel ajeno a la marca.",
+   "comp": ".impeccable/mocks/decision/challenger-citypop.webp"
+  }
+ ],
+ "reroll": {
+  "registers": [
+   "safer",
+   "bolder"
+  ]
+ },
+ "buildPath": {
+  "value": "code",
+  "toggle": false
+ },
+ "canon": true,
+ "canonCard": {
+  "label": "El estándar de ONG",
+  "thesis": "Lo que publica cualquier ONG de voluntariado, hecho con el máximo cuidado.",
+  "palette": [
+   "#FFFFFF",
+   "#185C0C",
+   "#43D029",
+   "#161616"
+  ],
+  "materials": [
+   "rejilla limpia",
+   "fotografía de voluntarios"
+  ],
+  "viewport": "Foto grande de voluntarios con «Únete» encima, tres tarjetas con las líneas de voluntariado, cifras, testimonios y pie de página.",
+  "risk": "Indistinguible de cualquier otra ONG, por diseño.",
+  "comp": ".impeccable/mocks/decision/canon.webp"
+ },
+ "steer": true
+}

@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { site } from '../data/site';
+---
+<Base title="Privacidad y datos personales" description="Cómo Buscando un Cambio usa y protege los datos personales de quienes postulan al voluntariado.">
+  <PageHead title="Privacidad y" accent="datos personales" lead="Cuidamos tus datos como cuidamos a los perritos de los albergues: con responsabilidad." />
+
+  <article class="wrap legal sheet">
+    <p class="borrador">Borrador pendiente de revisión por Buscando un Cambio. Completar razón social, RUC y responsable antes de publicar.</p>
+
+    <h2>Quién trata tus datos</h2>
+    <p>Buscando un Cambio (BUC), voluntariado juvenil con sede en Lima, Perú. Contacto: <a href={`mailto:${site.contacto.email}`}>{site.contacto.email}</a>.</p>
+
+    <h2>Qué datos pedimos</h2>
+    <p>En el formulario de postulación: nombre y apellidos, edad, distrito, WhatsApp, correo, causas y área de interés, días disponibles, cómo nos conociste y, de forma opcional, por qué quieres ser voluntario. Si eres menor de 18 años, también el nombre y celular de tu padre, madre o apoderado.</p>
+
+    <h2>Para qué los usamos</h2>
+    <p>Solo para evaluar tu postulación, contactarte sobre la convocatoria y coordinar tu participación en las jornadas. No vendemos ni compartimos tus datos con fines comerciales.</p>
+
+    <h2>Fotos y videos en las jornadas</h2>
+    <p>En las jornadas tomamos fotos y videos para difundir nuestras actividades. Si no quieres aparecer, avísale al líder de tu grupo. No publicamos imágenes de menores de edad sin la autorización de su padre, madre o apoderado.</p>
+
+    <h2>Cuánto tiempo los guardamos</h2>
+    <p>Mientras dure la convocatoria y tu participación como voluntario/a. Después los eliminamos, salvo que nos pidas mantenerte informado de nuevas convocatorias.</p>
+
+    <h2>Tus derechos</h2>
+    <p>De acuerdo con la Ley N.° 29733, Ley de Protección de Datos Personales, puedes pedirnos acceder, rectificar, cancelar u oponerte al uso de tus datos escribiendo a <a href={`mailto:${site.contacto.email}`}>{site.contacto.email}</a>.</p>
+  </article>
+  <div class="spacer"></div>
+</Base>
+
+<style>
+  .legal { padding: clamp(28px, 4vw, 56px); max-width: 860px; }
+  .legal h2 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.7rem); color: var(--buc-bosque); margin: 28px 0 8px; }
+  .legal h2:first-of-type { margin-top: 0; }
+  .legal a { color: var(--buc-bosque); font-weight: 600; }
+  .borrador { margin-bottom: 26px; padding: 12px 16px; border: 2px dashed var(--buc-bosque); border-radius: 8px; font-weight: 600; color: var(--buc-bosque); background: var(--buc-lima-100); }
+  .spacer { height: clamp(64px, 8vw, 110px); }
+</style>

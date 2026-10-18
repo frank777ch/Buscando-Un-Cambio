@@ -1,0 +1,24 @@
+# Extracción de marca: material descartado o temporal (no subir)
+brand/_descartadas/
+brand/_incoming/
+
+# Astro
+node_modules/
+dist/
+.astro/
+
+# Material pesado de la extracción de marca (≈890 MB de fotos y videos de Instagram): no subir
+brand/instagram/
+
+# Capturas y maquetas de trabajo de impeccable
+.impeccable/review/
+.impeccable/mocks/
+
+# Cloudflare
+.wrangler/
+
+# Propuesta para Instagram (incluye un número de teléfono personal)
+brand/propuesta-ig/
+
+# Hojas de contacto con todas las fotos de Instagram (incluyen menores): no subir a un repo público
+brand/contactsheet_*.jpg

@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import buki from '../assets/buki.png';
+import { url } from '../lib/url';
+---
+<Base title="Página no encontrada">
+  <section class="wrap nf">
+    <Image src={buki} alt="Buki, el zorro mascota de BUC" width={260} />
+    <div>
+      <h1 class="display">Buki buscó por <em>todas partes</em></h1>
+      <p class="lead">…y no encontró esta página. Quizá cambió de dirección o el enlace tiene un error.</p>
+      <div class="cta">
+        <a class="btn" href={url('/')}>Volver al inicio <Icon name="arrow" /></a>
+        <a class="link-hand" href={url('/voluntariados#jornadas')}>ver próximas jornadas</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf { display: grid; grid-template-columns: auto 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; padding-block: clamp(24px, 5vw, 64px) clamp(72px, 9vw, 120px); }
+  .nf img { width: clamp(160px, 22vw, 260px); transform: rotate(-6deg); filter: drop-shadow(0 10px 16px rgb(0 0 0 / 0.16)); }
+  h1 { font-size: clamp(2.4rem, 1.4rem + 3.6vw, 4.4rem); }
+  .lead { margin-top: 18px; color: var(--buc-noche); }
+  .cta { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; margin-top: 28px; }
+  @media (max-width: 700px) { .nf { grid-template-columns: 1fr; justify-items: start; } }
+</style>

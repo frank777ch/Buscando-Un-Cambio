@@ -1,0 +1,134 @@
+DIRECTION CONCEPT SEED (key: 33dc3190; mode: persuade; source: api; approved pool: c3b204a1eed6; 306/564 human-approved; rerun with --scope direction --mode persuade --from 33dc3190 --candidate-count 7 to reproduce this roll against this catalog revision)
+ASSIGNED INDEX: 4
+  After ordering the grounded directions by resonance, build candidate
+  4 of your own grounded list; the assignment never points at a
+  challenger. The assignment is the roll, not a suggestion: your top-ranked
+  direction is what every run would ship, so the script decides which grounded
+  direction gets built. Each direction joins a durable visual system to a
+  concrete expression for the requested first surface, decided as one. It must
+  survive the current task plus navigation, quiet and dense content,
+  interaction and state, and a substantially different future surface. In an
+  attended run, present the assigned direction fully committed and offer
+  re-roll. You may add ONE card for your top-ranked grounded candidate when
+  it is not the assigned direction, kicker IMPECCABLE’S PICK, with an honest risk line
+  naming its familiarity; one pick card, never a ranked lineup, and the pick
+  never takes the lead position. When the assignment IS your top candidate,
+  there is no pick card. Re-roll yourself only
+  on named factual grounds, when the assignment cannot carry the product's
+  truth or task; taste is never grounds.
+  The assignment exists to refuse the model's ranking rut, never to outrank
+  the user or the brief. Never expose assignment metadata in user-facing labels.
+CHALLENGERS:
+  1. a city-pop airbrush sleeve, chrome script logotype over a gradient sunset sky, pastel sea horizon and glass-tower skyline, palm silhouettes placed like punctuation, bilingual titles sharing the cover in balance
+     SOURCE ID: pop-culture-shelf-city-pop-airbrush
+     CREATIVE SPARK: the sky grades peach into powder blue behind a chrome script you could almost touch; a windshield flares once out on the coast road, palms stand like commas along the aqua horizon, and the evening looks airbrushed smooth enough to drive into
+     SYSTEM GRAMMAR:
+       - Palette/material: gradient sunset ground from peach through rose to powder blue, airbrushed aqua sea as the body field, chrome script reserved for the title mark
+       - Type/composition: a chrome script logotype floats above the horizon while japanese and english titles share the lower band in small balanced caps
+       - Topology/navigation: everything hangs on one horizon line; sections are stations along the shore you glide between, palms and glass towers marking the stops
+       - Controls/state: controls are smooth airbrushed pills, hover raises a soft light flare, the active choice takes a chrome rim and a reflection in the water
+       - Responsive/motion: the horizon holds as frames narrow, the skyline compressing before the sea does; motion is a slow parallax drift toward sunset
+     WEB LEVERAGE: layered css gradients paint the sunset and sea, background-clip text chromes the script logotype, and scroll parallax drifts the skyline
+     QUALITY BAR: board https://impeccable.style/worlds/cards/pop-culture-shelf-city-pop-airbrush.webp · hero https://impeccable.style/worlds/cards/pop-culture-shelf-city-pop-airbrush-hero.webp
+  2. a pulp paperback rack, lurid painted covers jostling spine-out and face-out, each promising doom in three tiers of breathless cover lines
+     SOURCE ID: posters-covers-sleeves-pulp-rack
+     CREATIVE SPARK: In a drugstore corner the wire rack creaks around, and every turn faces out another painted blonde, another smoking gun, another promise that this one ends badly.
+     SYSTEM GRAMMAR:
+       - Palette/material: night-blue painted scenes under taxi yellow and lipstick red cover lines, cheap ivory pulp stock as ground, red reserved for the chosen cover
+       - Type/composition: brush script over condensed gothic caps, cover lines breaking into italics for the promise of doom, the painting always owning the center
+       - Topology/navigation: a wire rack of pockets, most items show spines and chosen ones turn face-out, browsing is spinning tiers rather than scanning lists
+       - Controls/state: attention promotes a spine to a full painted cover, the three-tier cover-line stack ranks hook, title, and dread in fixed positions
+       - Responsive/motion: narrow widths show one face-out and a fan of spines, wide shows the whole carousel; motion is the rack's squeaky spin
+     WEB LEVERAGE: 3D CSS transforms spin the rack's tiers, with scroll-snap landing each pocket face-out.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/posters-covers-sleeves-pulp-rack.webp · hero https://impeccable.style/worlds/cards/posters-covers-sleeves-pulp-rack-hero.webp
+  3. a hand-processed strip of 16mm film carrying scratches, uneven chemistry, and light leaks, where the emulsion itself joins the photographed event
+     SOURCE ID: cinema-cinematography-editing-hand-processed-film-bloom
+     CREATIVE SPARK: A runner crosses a gray field; orange light floods the perforations, scratches flash white, and the figure briefly dissolves into boiling grain.
+     SYSTEM GRAMMAR:
+       - Palette/material: silver-gray emulsion over near-black leader as ground, orange light-leak flare reserved for the active frame, chemical sepia stains as wear
+       - Type/composition: stamped edge-code caps and grease-pencil frame numerals along the sprocket margin, content banded in strict frame-by-frame rows
+       - Topology/navigation: Move between frame, strip, perforation, processing event, and photographed subject.
+       - Controls/state: Expose, process, scratch, splice, and compare with latent, developing, fogged, damaged, and projected states.
+       - Responsive/motion: Use selected frames and a user-controlled strip while providing transcript and visual descriptions.
+     WEB LEVERAGE: Procedural film artifacts can be tied to exact frames and processing events rather than applied as a generic filter.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/cinema-cinematography-editing-hand-processed-film-bloom.webp · hero https://impeccable.style/worlds/cards/cinema-cinematography-editing-hand-processed-film-bloom-hero.webp
+  4. a white-hot iron bar drawn under a power hammer, where each blow sends black scale outward and lengthens the metal with brutal clarity
+     SOURCE ID: metal-forging-patina-blacksmith-scale-shower
+     CREATIVE SPARK: The hammer falls; a halo of black scale leaps from orange iron, and the square billet becomes visibly longer in a single strike.
+     SYSTEM GRAMMAR:
+       - Palette/material: forge-dark ground with anvil-gray steel, the workpiece graded from black through cherry to white heat, scale flecks as black particle texture
+       - Type/composition: heavy stenciled industrial caps with tabular force numerals, one blow per full-width row, measurements ruled like a smith's chalk marks
+       - Topology/navigation: Move through heats and blows while cross-section, length, and force remain registered.
+       - Controls/state: Heat, strike, rotate, and measure with cold, forging-hot, scaling, distorted, and normalized states.
+       - Responsive/motion: Present one blow per deliberate step and replace impact animation with before-after geometry and force values.
+     WEB LEVERAGE: Fast local deformation and particle shedding can be bounded to user-triggered moments while measured state stays in the DOM.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/metal-forging-patina-blacksmith-scale-shower.webp · hero https://impeccable.style/worlds/cards/metal-forging-patina-blacksmith-scale-shower-hero.webp
+  5. a dial-up bulletin board at 2 a.m., where ANSI title screens in sixteen colors, block-character art, and one phone line make a neighborhood out of text
+     SOURCE ID: medium-native-ansi-bbs-nightboard
+     CREATIVE SPARK: The title screen pours in line by line at modem speed, cyan on black, and being the only caller connected feels like owning the night.
+     SYSTEM GRAMMAR:
+       - Palette/material: sixteen ANSI colors on terminal black, cyan and magenta block art as chrome, blinking white on blue reserved for new mail and live presence
+       - Type/composition: CP437 block glyphs and box-drawing rules composing all chrome on an 80 by 25 cell grid, centered title art over numbered menu lines
+       - Topology/navigation: everything is a text screen with numbered exits; the character grid is the only geometry.
+       - Controls/state: presence is scarce and precious; who is online, new posts, and mail land as textmode events.
+       - Responsive/motion: the grid rescales by character cell; the pour-in reveal respects
+     WEB LEVERAGE: A true character-grid renderer with line-by-line streamed arrival and complete keyboard operation.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/medium-native-ansi-bbs-nightboard.webp · hero https://impeccable.style/worlds/cards/medium-native-ansi-bbs-nightboard-hero.webp
+  6. a printing darkroom under amber safelight, where enlarger beams, timed baths, and drying lines stage photographs into slow deliberate existence
+     SOURCE ID: signals-instruments-darkroom-safelight-bay
+     CREATIVE SPARK: In the developer tray, gray ghosts gather into a face; the timer ticks, and pulling the print too early is a real loss.
+     SYSTEM GRAMMAR:
+       - Palette/material: amber safelight washing every surface as the ground, wet-print silver grays deepening to black as the image ink, enamel tray white at the edges
+       - Type/composition: grease-pencil notes and printed timer digits under amber, labels sparse on bottles and trays; test strips band the field into stepped exposures
+       - Topology/navigation: work moves through fixed stations in order: compose, expose, develop, fix, wash, dry.
+       - Controls/state: progress is chemical and irreversible past marked points; test strips preview before committing.
+       - Responsive/motion: stations linearize on phones; the develop reveal is one continuous emergence, shown statically under
+     WEB LEVERAGE: Canvas-simulated development curves let previews emerge in real time before an action commits.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay.webp · hero https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay-hero.webp
+Fuse each challenger before judging it: the challenger supplies the form
+  and its system grammar, the product supplies every fact, and clarity wins
+  conflicts. Weigh the fused result against the assigned direction on exactly
+  two axes, audience identification and product clarity. Losing to strong
+  grounded material is a valid outcome; beating a thin or tool-monoculture
+  list is the point. A fused challenger that wins both axes becomes the build.
+  Close the weighing with a verdict per challenger, decided before any
+  borrowing is considered: wins (beats the assigned direction on both axes),
+  competitive (holds one axis), or declined (loses both). A declined
+  challenger is not spent: name the one discipline of its system the assigned
+  direction lacks, and raise the assigned direction to match before
+  presenting it. A donation transfers ambition and system discipline, never
+  the challenger's clothes; one world owns the page. Write each raise as its
+  own named line on the presented direction, and carry every verdict, kept
+  line, and raise into the decision page payload.
+When you can view images, open the QUALITY BAR board and hero for any
+challenger you weigh seriously and for the world you build. They exist as a
+craft bar, the finish level and commitment the build is expected to reach,
+never as a mockup to copy; your surface serves this product, not that render.
+PRODUCT.md and explicit incumbent brand commitments constrain every direction.
+The seed never chooses exact colors, fonts, tokens, or a user preference, and
+it never permits the world and first surface to be selected independently.
+The CREATIVE SPARK is a complete visual system, not a theme or decorative
+reference. Translate every supplied system rule into the product: palette and
+material, type and composition, topology, controls and states, and adaptation.
+Keep the source's visible character, scale, rhythm, and interaction instead of
+reducing vivid grammar to generic nouns. When the source is already a credible
+interface language, commit to it across navigation, content, controls, and
+states. Otherwise keep a literal carrier only when it becomes functional.
+Ambitious motion, spatial media, or interaction is welcome when it strengthens
+the product without weakening semantics, performance, or fallback behavior.
+TELEMETRY: after the user's choice resolves, rerun this script once with
+  --kind <assigned|pick|challenger|canon> --from 33dc3190 --scope direction --mode persuade,
+  adding --chosen <challenger-id> when a dealt challenger won and keeping
+  --register <safer|bolder> when the resolved round came from a steered hand.
+  One ping per resolved attended round. The ping is anonymous, the card kind
+  plus the catalog id when one won; your grounded candidates' names never
+  leave the machine, and the ping is skipped automatically when DO_NOT_TRACK
+  or IMPECCABLE_NO_TELEMETRY is set.
+A user- or brief-pinned decision beats the roll, always.
+ASSIGNED INDEX (restated for truncated readers): 4. Build candidate
+4 of your own grounded list; seed key 33dc3190.
+
+--- Resolución (2026-10-15) ---
+Lista propia ordenada por resonancia: 1 Álbum de jornadas (polaroids/stickers, pick), 2 Pasaporte de voluntariado con sellos, 3 Carnet de buccito, 4 Afiche chicha limeño (ASIGNADO), 5 Periódico mural, 6 Polo serigrafiado, 7 Mapa de jornadas de Lima.
+Challengers: los 6 declinados (film, pulp, bbs, darkroom, forge, citypop).
+Elección del usuario: pick «Álbum de jornadas» → iteración A «Pulida» (.impeccable/mocks/decision/album/album-a-*.png). Telemetría: --kind pick enviada.

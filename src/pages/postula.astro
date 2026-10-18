@@ -1,0 +1,361 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Icon from '../components/Icon.astro';
+import buki from '../assets/buki.png';
+import { site, convocatoria, formulario, lineas } from '../data/site';
+import { url } from '../lib/url';
+
+const distritos = ['Ancón', 'Ate', 'Barranco', 'Breña', 'Callao', 'Carabayllo', 'Cercado de Lima', 'Chorrillos', 'Comas', 'El Agustino', 'Independencia', 'Jesús María', 'La Molina', 'La Victoria', 'Lince', 'Los Olivos', 'Lurín', 'Magdalena del Mar', 'Miraflores', 'Pachacámac', 'Pueblo Libre', 'Puente Piedra', 'Rímac', 'San Borja', 'San Isidro', 'San Juan de Lurigancho', 'San Juan de Miraflores', 'San Luis', 'San Martín de Porres', 'San Miguel', 'Santa Anita', 'Santiago de Surco', 'Surquillo', 'Ventanilla', 'Villa El Salvador', 'Villa María del Triunfo'];
+const areas = [
+  { v: 'general', t: 'Voluntariado general', d: 'Participas en las jornadas animalistas, ambientales y sociales.' },
+  { v: 'lideres', t: 'Líderes de voluntariado', d: 'Organizas jornadas y acompañas a otros voluntarios.' },
+  { v: 'marketing', t: 'Marketing y audiovisuales', d: 'Diseño, contenido, fotografía, video y campañas.' },
+  { v: 'gestion', t: 'Gestión e impacto social', d: 'Proyectos, planificación y nuevas iniciativas.' },
+];
+const conociste = ['Instagram', 'TikTok', 'Facebook', 'LinkedIn', 'Un amigo o amiga', 'Mi universidad o colegio', 'Una jornada de BUC', 'Otro'];
+const wa = `https://wa.me/${site.contacto.whatsapp}?text=${encodeURIComponent('Hola BUC, quiero postular a la convocatoria de voluntariado.')}`;
+---
+<Base title="Postula" description="Postula a la convocatoria de voluntariado de Buscando un Cambio. Sin experiencia previa, desde 15 años, en Lima.">
+  <PageHead title="Postula" accent="a BUC" lead={convocatoria.abierta ? `${convocatoria.nombre}. Te toma unos 5 minutos.${convocatoria.cierre ? ` Cierra el ${convocatoria.cierre}.` : ''}` : 'Por ahora la convocatoria está cerrada.'} />
+
+  <section class="wrap postula">
+    <aside class="antes">
+      <div class="sheet antes__sheet">
+        <h2 class="display display--ink antes__title">Esto te vamos <em>a pedir</em></h2>
+        <ol class="pasos">
+          <li><strong>Tus datos</strong> nombre, edad, distrito, WhatsApp y correo.</li>
+          <li><strong>Tu voluntariado</strong> causas que te mueven, área y días disponibles.</li>
+          <li><strong>Compromisos</strong> mínimo 6 meses y, si eres menor, los datos de tu apoderado.</li>
+        </ol>
+        <p class="nota"><Icon name="shield" /> Solo usamos tus datos para la convocatoria. <a href={url('/privacidad')}>Cómo los cuidamos</a>.</p>
+      </div>
+      <Image class="antes__buki" src={buki} alt="" width={210} />
+    </aside>
+
+    {convocatoria.abierta ? (
+      <div class="sheet formsheet">
+        <form id="postula" novalidate data-endpoint={formulario.endpoint} data-wa={wa}>
+          <fieldset>
+            <legend>1 · Sobre ti</legend>
+            <div class="field">
+              <label for="nombre">Nombre y apellidos</label>
+              <input id="nombre" name="nombre" autocomplete="name" required minlength="3" maxlength="120" />
+              <p class="err" id="nombre-err" hidden></p>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="edad">Edad</label>
+                <input id="edad" name="edad" type="number" inputmode="numeric" min="15" max="99" required aria-describedby="edad-hint" />
+                <p class="hint" id="edad-hint">Desde 15 años.</p>
+                <p class="err" id="edad-err" hidden></p>
+              </div>
+              <div class="field">
+                <label for="distrito">Distrito</label>
+                <input id="distrito" name="distrito" list="distritos" autocomplete="address-level2" required maxlength="60" />
+                <datalist id="distritos">{distritos.map((d) => <option value={d} />)}</datalist>
+                <p class="err" id="distrito-err" hidden></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="whatsapp">WhatsApp</label>
+                <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required pattern="(\+?51)?\s?9\d{2}\s?\d{3}\s?\d{3}" placeholder="9XX XXX XXX" />
+                <p class="err" id="whatsapp-err" hidden></p>
+              </div>
+              <div class="field">
+                <label for="correo">Correo</label>
+                <input id="correo" name="correo" type="email" autocomplete="email" required maxlength="120" />
+                <p class="err" id="correo-err" hidden></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>2 · Tu voluntariado</legend>
+            <div class="field" role="group" aria-labelledby="lineas-l" data-group="lineas">
+              <p class="label" id="lineas-l">¿Qué causas te mueven? <span class="hint-inline">Elige una o más.</span></p>
+              <div class="chips">
+                {lineas.map((l) => <label class="chip"><input type="checkbox" name="lineas" value={l.id} /> <span>{l.nombre}</span></label>)}
+              </div>
+              <p class="err" id="lineas-err" hidden></p>
+            </div>
+            <div class="field" role="radiogroup" aria-labelledby="area-l" data-group="area">
+              <p class="label" id="area-l">¿A qué área postulas?</p>
+              <div class="areas">
+                {areas.map((a, i) => (
+                  <label class="area"><input type="radio" name="area" value={a.v} checked={i === 0} /><span><strong>{a.t}</strong><small>{a.d}</small></span></label>
+                ))}
+              </div>
+            </div>
+            <div class="field" role="group" aria-labelledby="dias-l" data-group="dias">
+              <p class="label" id="dias-l">¿Qué días puedes ir a jornadas?</p>
+              <div class="chips">
+                <label class="chip"><input type="checkbox" name="dias" value="sabado" /> <span>Sábados</span></label>
+                <label class="chip"><input type="checkbox" name="dias" value="domingo" /> <span>Domingos</span></label>
+              </div>
+              <p class="err" id="dias-err" hidden></p>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="conociste">¿Cómo nos conociste?</label>
+                <select id="conociste" name="conociste">
+                  <option value="">Elige una opción</option>
+                  {conociste.map((c) => <option>{c}</option>)}
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="motivo">¿Por qué quieres ser buccito? <span class="hint-inline">Opcional</span></label>
+              <textarea id="motivo" name="motivo" rows="4" maxlength="600"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>3 · Compromisos</legend>
+            <div class="apoderado" data-apoderado hidden>
+              <p class="aviso"><Icon name="shield" /> Como tienes menos de 18 años, necesitamos los datos de tu padre, madre o apoderado.</p>
+              <div class="row">
+                <div class="field">
+                  <label for="apoderado">Nombre del apoderado</label>
+                  <input id="apoderado" name="apoderado" maxlength="120" />
+                  <p class="err" id="apoderado-err" hidden></p>
+                </div>
+                <div class="field">
+                  <label for="apoderado_tel">Celular del apoderado</label>
+                  <input id="apoderado_tel" name="apoderado_tel" type="tel" inputmode="tel" pattern="(\+?51)?\s?9\d{2}\s?\d{3}\s?\d{3}" placeholder="9XX XXX XXX" />
+                  <p class="err" id="apoderado_tel-err" hidden></p>
+                </div>
+              </div>
+              <label class="check"><input type="checkbox" name="autoriza_apoderado" id="autoriza_apoderado" /> <span>Mi padre, madre o apoderado sabe que postulo y autoriza mi participación. Enviaré la autorización firmada antes de mi primera jornada.</span></label>
+              <p class="err" id="autoriza_apoderado-err" hidden></p>
+            </div>
+            <label class="check"><input type="checkbox" name="compromiso" id="compromiso" required /> <span>Me comprometo a participar como voluntario/a activo/a <strong>mínimo 6 meses</strong>.</span></label>
+            <p class="err" id="compromiso-err" hidden></p>
+            <label class="check"><input type="checkbox" name="privacidad" id="privacidad" required /> <span>Acepto que BUC use mis datos solo para esta convocatoria, según su <a href={url('/privacidad')}>política de privacidad</a>.</span></label>
+            <p class="err" id="privacidad-err" hidden></p>
+          </fieldset>
+
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+          <p class="form-err" role="alert" data-form-error hidden></p>
+          <button class="btn" type="submit" data-submit>Enviar postulación <Icon name="arrow" /></button>
+        </form>
+
+        <div class="done" data-done hidden tabindex="-1">
+          <h2 class="display display--ink">¡Recibimos tu <em>postulación!</em></h2>
+          <p class="lead">Gracias por querer ser parte del cambio. El equipo de BUC revisará tu postulación y te escribirá por WhatsApp o correo.</p>
+          <p>Mientras tanto, sigue el canal para enterarte de las próximas jornadas.</p>
+          <a class="btn btn--small" href={site.redes.canalWhatsapp}>Seguir el canal de WhatsApp <Icon name="arrow" /></a>
+        </div>
+
+        <div class="done" data-fallback hidden tabindex="-1">
+          <h2 class="display display--ink">Termina tu postulación <em>por WhatsApp</em></h2>
+          <p class="lead">El formulario de la web todavía no está conectado. Envíanos tus datos por WhatsApp y el equipo los registrará.</p>
+          <a class="btn" href={wa} data-fallback-link>Enviar por WhatsApp <Icon name="whatsapp" /></a>
+        </div>
+      </div>
+    ) : (
+      <div class="sheet formsheet cerrado">
+        <h2 class="display display--ink">¡Gracias por tu <em>interés!</em></h2>
+        <p class="lead">En este momento la convocatoria no está recibiendo postulaciones, pero valoramos mucho tus ganas de involucrarte.</p>
+        <p>Sigue nuestro canal oficial de WhatsApp: ahí compartimos las nuevas convocatorias, jornadas y oportunidades para generar impacto juntos.</p>
+        <a class="btn" href={site.redes.canalWhatsapp}>Seguir el canal <Icon name="arrow" /></a>
+      </div>
+    )}
+  </section>
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#postula');
+  if (form) {
+    const $ = <T extends HTMLElement>(s: string) => form.querySelector<T>(s);
+    const apoderadoBox = $<HTMLElement>('[data-apoderado]')!;
+    const edad = $<HTMLInputElement>('#edad')!;
+    const submit = $<HTMLButtonElement>('[data-submit]')!;
+    const formError = $<HTMLElement>('[data-form-error]')!;
+    const esMenor = () => { const n = Number(edad.value); return n >= 15 && n < 18; };
+
+    const syncApoderado = () => {
+      const menor = esMenor();
+      apoderadoBox.hidden = !menor;
+      ['apoderado', 'apoderado_tel', 'autoriza_apoderado'].forEach((id) => {
+        const el = form.querySelector<HTMLInputElement>(`#${id}`)!;
+        el.required = menor;
+        if (!menor) setErr(el, '');
+      });
+    };
+    edad.addEventListener('input', syncApoderado);
+
+    function setErr(el: HTMLElement, msg: string) {
+      const box = form!.querySelector<HTMLElement>(`#${el.id || el.dataset.group}-err`);
+      if (!box) return;
+      box.textContent = msg;
+      box.hidden = !msg;
+      if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
+        el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+        if (msg) el.setAttribute('aria-describedby', `${el.id}-err`); else el.removeAttribute('aria-describedby');
+      }
+    }
+
+    const mensajes: Record<string, (el: HTMLInputElement) => string> = {
+      nombre: (el) => el.validity.valueMissing ? 'Escribe tu nombre y apellidos.' : el.validity.tooShort ? 'Tu nombre parece muy corto.' : '',
+      edad: (el) => el.validity.valueMissing ? 'Escribe tu edad.' : el.validity.rangeUnderflow ? 'La convocatoria es desde los 15 años.' : el.validity.badInput || el.validity.rangeOverflow ? 'Revisa tu edad.' : '',
+      distrito: (el) => el.validity.valueMissing ? 'Escribe tu distrito.' : '',
+      whatsapp: (el) => el.validity.valueMissing ? 'Necesitamos tu WhatsApp para contactarte.' : el.validity.patternMismatch ? 'Escribe un celular peruano de 9 dígitos, por ejemplo 987 654 321.' : '',
+      correo: (el) => el.validity.valueMissing ? 'Escribe tu correo.' : el.validity.typeMismatch ? 'Revisa tu correo: falta la @ o el dominio.' : '',
+      apoderado: (el) => el.validity.valueMissing ? 'Escribe el nombre de tu apoderado.' : '',
+      apoderado_tel: (el) => el.validity.valueMissing ? 'Escribe el celular de tu apoderado.' : el.validity.patternMismatch ? 'Escribe un celular de 9 dígitos.' : '',
+      autoriza_apoderado: (el) => el.validity.valueMissing ? 'Confirma que tu apoderado autoriza tu participación.' : '',
+      compromiso: (el) => el.validity.valueMissing ? 'Para ser voluntario/a oficial necesitas comprometerte mínimo 6 meses.' : '',
+      privacidad: (el) => el.validity.valueMissing ? 'Necesitamos tu autorización para usar tus datos en la convocatoria.' : '',
+    };
+
+    const validarCampo = (el: HTMLInputElement) => { const fn = mensajes[el.name]; if (fn) setErr(el, fn(el)); return !fn || !fn(el); };
+    form.querySelectorAll<HTMLInputElement>('input[name], textarea[name]').forEach((el) => {
+      el.addEventListener('blur', () => { if (el.value || el.type === 'checkbox') validarCampo(el); });
+      el.addEventListener('input', () => { if (el.getAttribute('aria-invalid') === 'true') validarCampo(el); });
+      el.addEventListener('change', () => { if (el.getAttribute('aria-invalid') === 'true') validarCampo(el); });
+    });
+
+    const grupo = (name: string, msg: string) => {
+      const ok = form.querySelectorAll(`input[name="${name}"]:checked`).length > 0;
+      const holder = form.querySelector<HTMLElement>(`[data-group="${name}"]`)!;
+      setErr(holder, ok ? '' : msg);
+      return ok;
+    };
+    form.querySelectorAll<HTMLInputElement>('input[name="lineas"], input[name="dias"]').forEach((el) =>
+      el.addEventListener('change', () => grupo(el.name, el.name === 'lineas' ? 'Elige al menos una causa.' : 'Elige al menos un día.')));
+
+    const resumenWhatsApp = (data: FormData) => {
+      const t = [
+        'Hola BUC, quiero postular a la convocatoria:',
+        `• Nombre: ${data.get('nombre')}`,
+        `• Edad: ${data.get('edad')}`,
+        `• Distrito: ${data.get('distrito')}`,
+        `• Correo: ${data.get('correo')}`,
+        `• Causas: ${data.getAll('lineas').join(', ')}`,
+        `• Área: ${data.get('area')}`,
+        `• Días: ${data.getAll('dias').join(', ')}`,
+      ];
+      if (data.get('apoderado')) t.push(`• Apoderado: ${data.get('apoderado')} (${data.get('apoderado_tel')})`);
+      return `https://wa.me/${form.dataset.wa?.split('wa.me/')[1]?.split('?')[0]}?text=${encodeURIComponent(t.join('\n'))}`;
+    };
+
+    const mostrar = (sel: string) => {
+      form.hidden = true;
+      const panel = document.querySelector<HTMLElement>(sel)!;
+      panel.hidden = false;
+      panel.focus();
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formError.hidden = true;
+      syncApoderado();
+      const campos = Array.from(form.querySelectorAll<HTMLInputElement>('input[name]:not([type="radio"]):not(.hp), textarea[name]'));
+      const resultados = campos.map(validarCampo);
+      const okLineas = grupo('lineas', 'Elige al menos una causa.');
+      const okDias = grupo('dias', 'Elige al menos un día.');
+      if (resultados.includes(false) || !okLineas || !okDias) {
+        const primero = form.querySelector<HTMLElement>('[aria-invalid="true"], .err:not([hidden])');
+        (primero?.closest('.field, .check')?.querySelector('input') ?? primero)?.focus();
+        formError.textContent = 'Revisa los campos marcados para continuar.';
+        formError.hidden = false;
+        return;
+      }
+      const data = new FormData(form);
+      if (data.get('_gotcha')) return;
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) {
+        document.querySelector<HTMLAnchorElement>('[data-fallback-link]')!.href = resumenWhatsApp(data);
+        mostrar('[data-fallback]');
+        return;
+      }
+      submit.disabled = true;
+      submit.setAttribute('aria-busy', 'true');
+      submit.firstChild!.textContent = 'Enviando… ';
+      try {
+        const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(String(res.status));
+        mostrar('[data-done]');
+      } catch {
+        formError.innerHTML = `No pudimos enviar tu postulación (falla de conexión o del servicio). Inténtalo de nuevo o <a href="${resumenWhatsApp(data)}">envíala por WhatsApp</a>.`;
+        formError.hidden = false;
+      } finally {
+        submit.disabled = false;
+        submit.removeAttribute('aria-busy');
+        submit.firstChild!.textContent = 'Enviar postulación ';
+      }
+    });
+  }
+</script>
+
+<style>
+  .postula { display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); gap: clamp(24px, 4vw, 56px); align-items: start; padding-bottom: clamp(64px, 8vw, 110px); }
+  .antes { position: sticky; top: 24px; }
+  .antes__sheet { padding: clamp(24px, 3vw, 34px); transform: rotate(-0.8deg); }
+  .antes__title { font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.5rem); }
+  .pasos { margin: 20px 0 0; padding-left: 1.4em; display: grid; gap: 12px; }
+  .pasos li { padding-left: 4px; }
+  .pasos li::marker { font-family: var(--font-display); font-weight: 900; color: var(--buc-bosque); }
+  .pasos strong { display: block; font-family: var(--font-hand); font-weight: 400; font-size: 1.45rem; color: var(--buc-bosque); line-height: 1.1; }
+  .nota { display: flex; gap: 8px; margin-top: 20px; font-size: 0.92rem; color: var(--buc-bosque); }
+  .nota :global(svg) { width: 20px; height: 20px; flex: none; }
+  .antes :global(.antes__buki) { width: 170px; margin: 18px 0 0 auto; transform: rotate(6deg); filter: drop-shadow(0 8px 12px rgb(0 0 0 / 0.16)); }
+
+  .formsheet { padding: clamp(24px, 4vw, 52px); }
+  fieldset { border: 0; padding: 0; margin: 0 0 clamp(28px, 4vw, 40px); display: grid; gap: 18px; }
+  legend { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.8rem); color: var(--buc-bosque); padding: 0; margin-bottom: 18px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .field { display: grid; gap: 6px; align-content: start; }
+  label, .label { font-weight: 600; font-size: 1rem; color: var(--buc-noche); }
+  .hint, .hint-inline { font-size: 0.875rem; font-weight: 400; color: var(--buc-gris-600); }
+  input:not([type='checkbox']):not([type='radio']), select, textarea {
+    width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 10px;
+    border: 2px solid #9fb88b; background: var(--buc-blanco); font-size: 1rem; color: var(--buc-noche);
+    transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+  }
+  input::placeholder, textarea::placeholder { color: #6b6b6b; }
+  input:hover, select:hover, textarea:hover { border-color: var(--buc-bosque); }
+  input:focus-visible, select:focus-visible, textarea:focus-visible { outline: none; border-color: var(--buc-bosque); box-shadow: 0 0 0 4px rgb(132 204 44 / 0.45); }
+  [aria-invalid='true'] { border-color: #a1221b !important; }
+  .err { font-size: 0.9rem; font-weight: 600; color: #a1221b; }
+  textarea { resize: vertical; min-height: 110px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip { position: relative; }
+  .chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .chip span { display: inline-flex; align-items: center; min-height: 46px; padding: 6px 18px; border-radius: 999px; border: 2.5px solid var(--buc-bosque); font-family: var(--font-hand); font-size: 1.35rem; color: var(--buc-bosque); background: var(--buc-blanco); cursor: pointer; transition: background-color var(--dur-fast), color var(--dur-fast); }
+  .chip input:checked + span { background: var(--buc-bosque); color: var(--buc-blanco); }
+  .chip input:focus-visible + span { outline: 3px solid var(--buc-bosque); outline-offset: 3px; }
+  .areas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .area { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border-radius: 12px; border: 2px solid #c9dcb6; background: var(--buc-blanco); cursor: pointer; font-weight: 400; }
+  .area:has(input:checked) { border-color: var(--buc-bosque); background: var(--buc-lima-100); }
+  .area strong { display: block; font-weight: 700; color: var(--buc-bosque); }
+  .area small { display: block; font-size: 0.875rem; color: var(--buc-gris-600); margin-top: 2px; line-height: 1.4; }
+  input[type='radio'], input[type='checkbox'] { accent-color: var(--buc-bosque); width: 20px; height: 20px; flex: none; margin-top: 2px; }
+  .check { display: flex; gap: 12px; align-items: flex-start; font-weight: 400; line-height: 1.5; cursor: pointer; }
+  .check a { color: var(--buc-bosque); font-weight: 600; }
+  .apoderado { display: grid; gap: 16px; padding: 18px; border-radius: 12px; background: var(--buc-lima-100); border: 2px dashed var(--buc-verde); }
+  .apoderado[hidden] { display: none; }
+  .aviso { display: flex; gap: 8px; font-weight: 600; color: var(--buc-bosque); }
+  .aviso :global(svg) { width: 22px; height: 22px; flex: none; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; }
+  .form-err { margin-bottom: 16px; padding: 12px 14px; border-radius: 10px; background: #fdeceb; color: #a1221b; font-weight: 600; }
+  .form-err :global(a) { color: inherit; }
+  button[aria-busy='true'] { cursor: progress; }
+  .done { display: grid; gap: 18px; justify-items: start; }
+  .done[hidden] { display: none; }
+  .done .display { font-size: clamp(2rem, 1.5rem + 2vw, 3.2rem); }
+  .cerrado { display: grid; gap: 18px; justify-items: start; }
+  .cerrado .display { font-size: clamp(2rem, 1.5rem + 2vw, 3.2rem); }
+
+  @media (max-width: 900px) {
+    .postula { grid-template-columns: 1fr; }
+    .antes { position: static; }
+    .antes :global(.antes__buki) { display: none; }
+  }
+  @media (max-width: 560px) { .row, .areas { grid-template-columns: 1fr; } }
+</style>

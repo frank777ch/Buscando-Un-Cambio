@@ -1,0 +1,65 @@
+{
+  "_instrucciones": "Una entrada por jornada. fecha en formato AAAA-MM-DD. estado: abierta | ultimos | cerrada. linea: animalista | ambiental | social. inscripcion: URL del formulario de la jornada (vacío = se inscribe por WhatsApp). foto: nombre de un archivo de src/assets/fotos sin extensión. ejemplo: true marca datos de demostración; borrar esas entradas al cargar jornadas reales. Las jornadas pasadas se ocultan solas.",
+  "jornadas": [
+    {
+      "id": "villa-panamericana-2026-10-18",
+      "linea": "animalista",
+      "titulo": "Albergue Villa Panamericana",
+      "lugar": "Albergue Villa Panamericana",
+      "distrito": "Villa El Salvador",
+      "fecha": "2026-10-18",
+      "encuentro": "8:15 a. m.",
+      "horario": "9:00 a. m. – 1:00 p. m.",
+      "estado": "ultimos",
+      "descripcion": "Baño de los perritos, alimentación, orden de almacenes y limpieza del albergue.",
+      "inscripcion": "",
+      "foto": "jornada-albergue",
+      "ejemplo": true
+    },
+    {
+      "id": "playa-marquez-2026-10-24",
+      "linea": "ambiental",
+      "titulo": "Limpieza de playa Márquez",
+      "lugar": "Playa Márquez",
+      "distrito": "Callao",
+      "fecha": "2026-10-24",
+      "encuentro": "8:00 a. m.",
+      "horario": "8:30 a. m. – 12:30 p. m.",
+      "estado": "abierta",
+      "descripcion": "Recojo de residuos sólidos en la orilla con bolsas y guantes que entrega BUC.",
+      "inscripcion": "",
+      "foto": "jornada-playa",
+      "ejemplo": true
+    },
+    {
+      "id": "escuadron-4-patas-2026-10-25",
+      "linea": "animalista",
+      "titulo": "Escuadrón 4 Patas",
+      "lugar": "Albergue Escuadrón 4 Patas",
+      "distrito": "Ventanilla",
+      "fecha": "2026-10-25",
+      "encuentro": "8:30 a. m.",
+      "horario": "9:00 a. m. – 1:00 p. m.",
+      "estado": "cerrada",
+      "descripcion": "Jornada de cuidado y limpieza con el equipo del albergue.",
+      "inscripcion": "",
+      "foto": "jornada-limpieza",
+      "ejemplo": true
+    },
+    {
+      "id": "olla-comun-2026-11-08",
+      "linea": "social",
+      "titulo": "Apoyo a olla común",
+      "lugar": "Comunidad aliada",
+      "distrito": "Lima Norte",
+      "fecha": "2026-11-08",
+      "encuentro": "8:30 a. m.",
+      "horario": "9:00 a. m. – 1:00 p. m.",
+      "estado": "abierta",
+      "descripcion": "Preparación y reparto de alimentos junto a la comunidad.",
+      "inscripcion": "",
+      "foto": "social-olla",
+      "ejemplo": true
+    }
+  ]
+}

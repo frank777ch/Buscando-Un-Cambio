@@ -1,0 +1,47 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+import { type Jornada, fechaCorta, fechaLarga, estadoTexto } from '../lib/jornadas';
+
+interface Props { j: Jornada; rotate?: number; full?: boolean; tag?: string; heading?: 'h2' | 'h3' | 'p'; paste?: boolean }
+const { j, rotate = 0, full = false, tag, heading = 'h3', paste = false } = Astro.props;
+const Heading = heading;
+const lineas = { animalista: { t: 'Animalista', i: 'paw' }, ambiental: { t: 'Ambiental', i: 'wave' }, social: { t: 'Social', i: 'hands' } } as const;
+const linea = lineas[j.linea];
+const mensaje = encodeURIComponent(`Hola BUC, quiero anotarme en la jornada «${j.titulo}» del ${fechaLarga(j.fecha)}.`);
+const inscribir = j.inscripcion || `https://wa.me/${site.contacto.whatsapp}?text=${mensaje}`;
+const [primera, ...resto] = j.titulo.split(' ');
+const hora = j.encuentro.replace(' a. m.', '').replace(' p. m.', '');
+---
+<article class:list={['ticket', 'jornada', full && 'jornada--full', full && 'ticket--lift', paste && 'paste']} style={`--r: ${rotate}deg`} data-fecha={j.fecha} data-estado={j.estado}>
+  <span class="tag"><Icon name={linea.i} /> {tag ?? linea.t}</span>
+  <span class:list={['estado', `estado--${j.estado}`]}>{estadoTexto[j.estado]}</span>
+  <Heading class="ticket__t">{primera}{' '}<em>{resto.join(' ')}</em></Heading>
+  <p class="ticket__d"><span><time datetime={j.fecha}>{fechaCorta(j.fecha)}</time></span> <span>· {hora}</span> <span>· {j.distrito}</span></p>
+  {full && (
+    <div class="more">
+      <p>{j.descripcion}</p>
+      <ul>
+        <li><Icon name="pin" /> {j.lugar}, {j.distrito}</li>
+        <li><Icon name="clock" /> Encuentro {j.encuentro} · {j.horario}</li>
+      </ul>
+      {j.estado !== 'cerrada'
+        ? <a class="btn btn--small" href={inscribir}>Anótame <Icon name="arrow" /></a>
+        : <p class="cerrada">Cupos completos. Síguenos en el canal de WhatsApp para la próxima.</p>}
+    </div>
+  )}
+  {j.ejemplo && <span class="ejemplo">fecha de ejemplo</span>}
+</article>
+
+<style>
+  .jornada { max-width: 380px; }
+  .jornada--full { max-width: none; display: flex; flex-direction: column; }
+  .jornada .ejemplo { align-self: flex-start; }
+  .more { margin-top: 14px; display: grid; gap: 12px; }
+  .more p { font-size: 0.98rem; line-height: 1.5; }
+  .more ul { list-style: none; padding: 0; display: grid; gap: 6px; font-size: 0.95rem; }
+  .more li { display: flex; gap: 8px; align-items: flex-start; }
+  .more li :global(svg) { width: 18px; height: 18px; flex: none; margin-top: 3px; color: var(--buc-bosque); }
+  .more .btn { justify-self: start; margin-top: 4px; }
+  .cerrada { font-family: var(--font-hand); font-size: 1.2rem; color: var(--buc-bosque); }
+</style>

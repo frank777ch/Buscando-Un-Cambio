@@ -1,0 +1,170 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { momentos } from '../data/momentos';
+import { foto } from '../lib/jornadas';
+
+// Banner a todo el ancho: foto grande + texto encima, pasa solo (estilo slider de portada).
+const lineas = { animalista: { t: 'Animalista', i: 'paw', c: '' }, ambiental: { t: 'Ambiental', i: 'wave', c: 'sticker--lima' }, social: { t: 'Social', i: 'hands', c: 'sticker--sol' } } as const;
+const total = momentos.length;
+---
+<div class="ban" data-carrusel role="region" aria-roledescription="carrusel" aria-label="Momentos de las jornadas de BUC">
+  <div class="ban__track" data-track tabindex="0">
+    {momentos.map((m, i) => {
+      const l = lineas[m.linea];
+      return (
+        <article class="slide" role="group" aria-roledescription="diapositiva" aria-label={`${i + 1} de ${total}`} data-slide>
+          <Image class="slide__bg" src={foto(m.foto)} alt="" width={480} quality={60} loading={i < 1 ? 'eager' : 'lazy'} />
+          <div class="slide__shade" aria-hidden="true"></div>
+          <figure class="slide__foto">
+            <Image src={foto(m.foto)} alt={m.titulo} quality={90} widths={[...new Set([720, foto(m.foto).width])].filter((w) => w <= foto(m.foto).width)} sizes="(max-width: 700px) 100vw, 46vw" loading={i < 1 ? 'eager' : 'lazy'} />
+          </figure>
+          <div class="slide__txt wrap">
+            <span class:list={['sticker', l.c]}><Icon name={l.i} /> {l.t}</span>
+            <h3 class="display slide__t">{m.titulo}</h3>
+            <p>{m.texto}</p>
+            <p class="slide__cuando"><Icon name="calendar" /> {m.cuando}</p>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+  <div class="ban__nav wrap">
+    <div class="ban__dots" role="tablist" aria-label="Elegir momento">
+      {momentos.map((m, i) => <button type="button" role="tab" class="ban__dot" aria-label={`Ir al momento ${i + 1}: ${m.titulo}`} aria-selected={i === 0 ? 'true' : 'false'} data-dot={i} />)}
+    </div>
+    <button type="button" class="ban__play" data-play aria-label="Pausar el carrusel" aria-pressed="false">
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" /></svg>
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z" fill="currentColor" /></svg>
+    </button>
+    <div class="ban__arrows">
+      <button type="button" class="ban__arrow ban__arrow--prev" data-prev aria-label="Momento anterior"><Icon name="arrow" /></button>
+      <button type="button" class="ban__arrow ban__arrow--next" data-next aria-label="Momento siguiente"><Icon name="arrow" /></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carrusel]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-track]')!;
+    const slides = Array.from(root.querySelectorAll<HTMLElement>('[data-slide]'));
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-dot]'));
+    const play = root.querySelector<HTMLButtonElement>('[data-play]')!;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = 0;
+    let paused = reduce;
+    let hover = false;
+    let timer: number | undefined;
+
+    const go = (i: number) => {
+      index = (i + slides.length) % slides.length;
+      track.scrollTo({ left: slides[index].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+    };
+    const mark = () => {
+      dots.forEach((d, k) => d.setAttribute('aria-selected', String(k === index)));
+      slides.forEach((s, k) => s.classList.toggle('is-active', k === index));
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting && e.intersectionRatio > 0.6) { index = slides.indexOf(e.target as HTMLElement); mark(); } });
+    }, { root: track, threshold: [0.6] });
+    slides.forEach((s) => io.observe(s));
+
+    const schedule = () => {
+      window.clearInterval(timer);
+      if (!paused && !hover) timer = window.setInterval(() => go(index + 1), 6000);
+    };
+    const setPaused = (p: boolean) => {
+      paused = p;
+      play.setAttribute('aria-pressed', String(p));
+      play.setAttribute('aria-label', p ? 'Reproducir el carrusel' : 'Pausar el carrusel');
+      root.classList.toggle('is-paused', p);
+      schedule();
+    };
+
+    root.querySelector('[data-prev]')!.addEventListener('click', () => { go(index - 1); schedule(); });
+    root.querySelector('[data-next]')!.addEventListener('click', () => { go(index + 1); schedule(); });
+    dots.forEach((d, k) => d.addEventListener('click', () => { go(k); schedule(); }));
+    play.addEventListener('click', () => setPaused(!paused));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); schedule(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); schedule(); }
+    });
+    root.addEventListener('mouseenter', () => { hover = true; schedule(); });
+    root.addEventListener('mouseleave', () => { hover = false; schedule(); });
+    root.addEventListener('focusin', () => { hover = true; schedule(); });
+    root.addEventListener('focusout', () => { hover = false; schedule(); });
+    document.addEventListener('visibilitychange', () => { hover = document.hidden; schedule(); });
+
+    mark();
+    setPaused(paused);
+  });
+</script>
+
+<style>
+  .ban { position: relative; background: var(--buc-noche); }
+  .ban__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .ban__track::-webkit-scrollbar { display: none; }
+  .ban__track:focus-visible { outline: 3px solid var(--buc-amarillo); outline-offset: -6px; }
+
+  /* Fondo: la misma foto muy desenfocada (rellena el ancho sin mostrar la baja resolución).
+     Frente: la foto completa, sin recortes y a su tamaño nítido, a la derecha. */
+  .slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; height: clamp(560px, 80svh, 840px); overflow: hidden; display: grid; align-items: center; }
+  .slide :global(.slide__bg) { position: absolute; inset: -60px; width: calc(100% + 120px); height: calc(100% + 120px); object-fit: cover; filter: blur(38px) saturate(1.25) brightness(0.8); }
+  .slide__shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(22 22 22 / 0.82) 0%, rgb(22 22 22 / 0.55) 45%, rgb(22 22 22 / 0.2) 100%); }
+  .slide__foto { position: absolute; z-index: 1; right: max(var(--gutter), calc((100% - var(--container)) / 2)); top: 50%; translate: 0 -58%; margin: 0; height: 70%; max-width: 52%; background: var(--buc-blanco); padding: clamp(10px, 1vw, 14px); box-shadow: 0 2px 6px rgb(0 0 0 / 0.25), 0 30px 60px rgb(0 0 0 / 0.4); rotate: 2deg; }
+  .slide__foto :global(img) { height: 100%; width: auto; max-width: 100%; object-fit: contain; transform: scale(1.04); transition: transform 6.5s linear; }
+  .slide.is-active .slide__foto :global(img) { transform: scale(1); }
+  .slide__txt { position: relative; z-index: 2; display: grid; gap: 16px; justify-items: start; padding-block: 0 clamp(40px, 5vw, 64px); color: var(--buc-blanco); }
+  .slide__txt > * { max-width: min(46ch, 44vw); }
+  .slide__t { font-size: clamp(2.4rem, 1.4rem + 3.6vw, 5rem); max-width: 14ch; }
+  .slide__txt p { font-size: clamp(1.05rem, 1rem + 0.35vw, 1.3rem); line-height: 1.55; max-width: 46ch; color: var(--buc-blanco); text-shadow: 0 1px 12px rgb(0 0 0 / 0.45); }
+  .slide__cuando { display: flex; align-items: center; gap: 8px; font-family: var(--font-brand); font-weight: 600; font-size: 0.95rem !important; color: var(--buc-amarillo) !important; }
+  .slide__cuando :global(svg) { width: 18px; height: 18px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .slide .slide__txt > * { opacity: 0; transform: translateY(18px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }
+    .slide.is-active .slide__txt > * { opacity: 1; transform: none; }
+    .slide.is-active .slide__txt > :nth-child(2) { transition-delay: 90ms; }
+    .slide.is-active .slide__txt > :nth-child(3) { transition-delay: 180ms; }
+    .slide.is-active .slide__txt > :nth-child(4) { transition-delay: 260ms; }
+  }
+  @media (prefers-reduced-motion: reduce) { .slide__foto :global(img) { transform: none; transition: none; } }
+
+  .ban__arrows { margin-left: auto; display: flex; gap: 12px; }
+  .ban__arrow {
+    position: relative; flex: none; width: 58px; height: 58px; border-radius: 50%; border: 0; cursor: pointer;
+    display: grid; place-items: center; background: rgb(255 255 255 / 0.9); color: var(--buc-bosque);
+    box-shadow: 0 6px 18px rgb(0 0 0 / 0.3); transition: background-color var(--dur-fast), transform var(--dur-fast) var(--ease-out);
+  }
+  .ban__arrow:hover { background: var(--buc-amarillo); transform: scale(1.06); }
+  .ban__arrow :global(svg) { width: 26px; height: 26px; }
+  .ban__arrow--prev :global(svg) { transform: scaleX(-1); }
+
+  .ban__nav { position: absolute; left: 0; right: 0; bottom: clamp(36px, 4vw, 52px); z-index: 2; display: flex; align-items: center; gap: 14px; }
+  .ban__dots { display: flex; }
+  .ban__dot { width: 30px; height: 30px; border: 0; padding: 0; background: transparent; cursor: pointer; display: grid; place-items: center; flex: none; }
+  .ban__dot::before { content: ''; width: 10px; height: 10px; border-radius: 999px; background: rgb(255 255 255 / 0.55); transition: transform var(--dur-base) var(--ease-out), background-color var(--dur-base); }
+  .ban__dot[aria-selected='true']::before { transform: scaleX(2.6); background: var(--buc-amarillo); }
+  .ban__dot:hover::before { background: var(--buc-blanco); }
+  .ban__play { flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; background: transparent; color: var(--buc-blanco); border: 2px solid rgb(255 255 255 / 0.7); }
+  .ban__play:hover { background: rgb(255 255 255 / 0.15); }
+  .ban__play svg { width: 16px; height: 16px; }
+  .ban__play .i-play { display: none; }
+  .ban.is-paused .ban__play .i-play { display: block; }
+  .ban.is-paused .ban__play .i-pause { display: none; }
+
+  @media (max-width: 860px) {
+    .slide { height: auto; min-height: 640px; align-items: start; grid-template-rows: auto 1fr; padding-top: 28px; }
+    .slide__foto { position: relative; right: auto; top: auto; translate: none; height: auto; max-width: none; width: calc(100% - 2 * var(--gutter)); margin: 0 auto; rotate: -1.5deg; }
+    .slide__foto :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+    .slide__shade { background: linear-gradient(0deg, rgb(22 22 22 / 0.85) 0%, rgb(22 22 22 / 0.45) 100%); }
+    .slide__txt { padding: 24px var(--gutter) 110px; }
+    .slide__txt > * { max-width: none; }
+  }
+  @media (max-width: 700px) {
+    .ban__arrow { width: 44px; height: 44px; }
+    .ban__arrows { gap: 8px; }
+    .ban__dot { width: 20px; }
+    .ban__nav { gap: 8px; }
+  }
+  @media (max-width: 400px) { .ban__dot { width: 16px; } .ban__play { width: 36px; height: 36px; } .ban__arrow { width: 40px; height: 40px; } .ban__arrows { gap: 6px; } }
+</style>

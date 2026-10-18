@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo_buc_verde.svg';
+import Icon from './Icon.astro';
+import { url, isCurrent } from '../lib/url';
+
+const links = [
+  { href: '/voluntariados', label: 'Voluntariados' },
+  { href: '/voluntariados#jornadas', label: 'Jornadas' },
+  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/preguntas', label: 'Preguntas' },
+];
+const current = Astro.url;
+---
+<header class="topbar" data-topbar>
+<div class="nav wrap">
+  <a class="brand" href={url('/')} aria-label="Buscando un Cambio, inicio">
+    <Image src={logo} alt="" width={48} height={48} loading="eager" />
+    <span>Buscando un Cambio</span>
+  </a>
+  <nav aria-label="Principal" class="links">
+    <ul>
+      {links.map((l) => <li><a href={url(l.href)} aria-current={isCurrent(current, l.href) ? 'page' : undefined}>{l.label}</a></li>)}
+    </ul>
+  </nav>
+  <a class="btn btn--small go" href={url('/postula')}>Postula</a>
+  <details class="mobile">
+    <summary aria-label="Abrir menú"><Icon name="menu" class="i-open" /><Icon name="close" class="i-close" /></summary>
+    <div class="panel">
+      <ul>
+        {links.map((l) => <li><a href={url(l.href)}>{l.label}</a></li>)}
+      </ul>
+      <a class="btn" href={url('/postula')}>Postula a BUC <Icon name="arrow" /></a>
+    </div>
+  </details>
+</div>
+</header>
+
+<script>
+  // Barra transparente arriba; toma fondo al bajar por la página (y al pasar el cursor, por CSS).
+  const bar = document.querySelector<HTMLElement>('[data-topbar]');
+  if (bar) {
+    const sync = () => bar.classList.toggle('is-scrolled', window.scrollY > 24);
+    sync();
+    window.addEventListener('scroll', sync, { passive: true });
+  }
+</script>
+
+<style>
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: transparent; border-bottom: 1px solid transparent;
+    transition: background-color 300ms var(--ease-out), box-shadow 300ms var(--ease-out), border-color 300ms;
+  }
+  .topbar:hover, .topbar:focus-within, .topbar.is-scrolled {
+    background: rgb(166 216 108 / 0.94);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2); backdrop-filter: blur(10px) saturate(1.2);
+    border-bottom-color: rgb(24 92 12 / 0.12);
+    box-shadow: 0 6px 20px rgb(22 22 22 / 0.1);
+  }
+  .nav { display: flex; align-items: center; gap: 14px; padding-block: 18px; position: relative; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--buc-bosque); }
+  .brand img { width: 48px; height: 48px; }
+  .brand { min-width: 0; }
+  .brand img { flex: none; }
+  .brand span { font-family: var(--font-brand); font-weight: 700; font-size: 0.875rem; letter-spacing: var(--ls-brand); text-transform: uppercase; white-space: nowrap; }
+  .links { margin-left: auto; }
+  .links ul { display: flex; gap: clamp(16px, 2vw, 28px); list-style: none; padding: 0; }
+  .links a { font-family: var(--font-hand); font-size: 1.5rem; color: var(--buc-bosque); text-decoration: none; padding: 4px 2px; }
+  .links a:hover, .links a[aria-current='page'] { text-decoration: underline wavy var(--buc-bosque); text-underline-offset: 6px; text-decoration-thickness: 2px; }
+  .go { margin-left: 8px; }
+  .mobile { display: none; margin-left: auto; }
+  .mobile summary { list-style: none; width: 50px; height: 50px; border-radius: 50%; background: var(--buc-bosque); color: #fff; display: grid; place-items: center; cursor: pointer; }
+  .mobile summary::-webkit-details-marker { display: none; }
+  .mobile summary :global(svg) { width: 24px; height: 24px; grid-area: 1 / 1; }
+  .mobile :global(.i-close) { display: none; }
+  .mobile[open] :global(.i-open) { display: none; }
+  .mobile[open] :global(.i-close) { display: block; }
+  .panel {
+    position: absolute; right: var(--gutter); left: var(--gutter); top: 78px;
+    background: var(--buc-papel); border-radius: 10px; padding: 18px 22px 22px; box-shadow: var(--shadow-lift);
+  }
+  .panel ul { list-style: none; padding: 0; margin-bottom: 16px; }
+  .panel li + li { border-top: 1.5px dashed var(--buc-lima-300); }
+  .panel a:not(.btn) { display: block; padding: 12px 2px; font-family: var(--font-hand); font-size: 1.6rem; color: var(--buc-bosque); text-decoration: none; }
+  .panel .btn { width: 100%; }
+  @media (max-width: 860px) {
+    .links, .go { display: none; }
+    .mobile { display: block; }
+    .brand span { font-size: 0.8rem; }
+  }
+  @media (max-width: 420px) { .brand span { font-size: 0.72rem; letter-spacing: 0.05em; } .brand img { width: 42px; height: 42px; } }
+  @media (max-width: 340px) { .brand span { display: none; } }
+</style>

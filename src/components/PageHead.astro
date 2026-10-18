@@ -1,0 +1,25 @@
+---
+interface Props { title: string; accent?: string; lead?: string; id?: string }
+const { title, accent, lead, id = 'page-title' } = Astro.props;
+const hasAside = Astro.slots.has('default');
+---
+<header class:list={['ph', 'wrap', !hasAside && 'ph--solo']}>
+  <div class="ph__txt">
+    <h1 id={id} class="display ph__title">{title}{accent && <> <em>{accent}</em></>}</h1>
+    {lead && <p class="lead ph__lead">{lead}</p>}
+    <slot name="after" />
+  </div>
+  {hasAside && <div class="ph__aside"><slot /></div>}
+</header>
+
+<style>
+  .ph { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(24px, 4vw, 64px); align-items: center; padding-block: clamp(16px, 3vw, 36px) clamp(40px, 6vw, 80px); }
+  .ph__txt { container-type: inline-size; min-width: 0; }
+  .ph__title { font-size: clamp(2rem, 1.4rem + 4.4vw, 5rem); }
+  @media (max-width: 860px) { .ph__title { font-size: min(12.5cqi, 3.6rem); } }
+  .ph__lead { margin-top: clamp(16px, 2vw, 26px); color: var(--buc-noche); }
+  .ph__aside { position: relative; min-height: 1px; }
+  .ph--solo { grid-template-columns: 1fr; }
+  .ph--solo .ph__title { max-width: 22ch; }
+  @media (max-width: 860px) { .ph { grid-template-columns: 1fr; } }
+</style>

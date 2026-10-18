@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+// Cinta de aliados que se desplaza de izquierda a derecha.
+// Logos: guardar el archivo en src/assets/aliados/<id>.png (o .svg/.webp); si no existe, se muestra el nombre.
+const aliados = [
+  { id: 'escuadron-4-patas', nombre: 'Escuadrón 4 Patas' },
+  { id: 'luc', nombre: 'LUC · Líderes Unidos por un Cambio' },
+  { id: 'liga-contra-el-cancer', nombre: 'Liga Contra el Cáncer' },
+  { id: 'fundacion-peruana-de-cancer', nombre: 'Fundación Peruana de Cáncer' },
+  { id: 'teleton', nombre: 'Teletón' },
+  { id: 'somos-amalia', nombre: 'Somos Amalia' },
+  { id: 'oiide', nombre: 'OIIDE' },
+  { id: 'peru-te-quiero-limpio', nombre: 'Perú Te Quiero Limpio' },
+  { id: 'lomas-de-ancon', nombre: 'Lomas de Ancón' },
+  { id: 'voluntarios-pe', nombre: 'voluntarios.pe' },
+  { id: 'tunva-peru', nombre: 'Tunva Perú' },
+  { id: 'upn', nombre: 'UPN' },
+];
+
+const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/aliados/*.{png,svg,webp,jpg}', { eager: true });
+const logoDe = (id: string) => Object.entries(logos).find(([p]) => p.split('/').pop()!.replace(/\.\w+$/, '') === id)?.[1].default;
+const items = aliados.map((a) => ({ ...a, logo: logoDe(a.id) }));
+---
+<div class="marquee" aria-label="Aliados de Buscando un Cambio">
+  <ul class="marquee__track">
+    {[0, 1].map((copia) => items.map((a) => (
+      <li aria-hidden={copia === 1 ? 'true' : undefined}>
+        {a.logo && <Image src={a.logo} alt="" width={128} height={128} class="logo" />}
+        <span class="wordmark">{a.nombre}</span>
+      </li>
+    )))}
+  </ul>
+</div>
+
+<style>
+  .marquee {
+    overflow: hidden; padding-block: 18px;
+    -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee__track { list-style: none; padding: 0; margin: 0; display: flex; gap: clamp(16px, 2vw, 28px); width: max-content; }
+  .marquee__track li { flex: none; display: flex; align-items: center; gap: 14px; min-height: 88px; padding: 12px 24px 12px 12px; background: var(--buc-blanco); border-radius: 14px; box-shadow: var(--shadow-card); }
+  .marquee__track li:not(:has(.logo)) { padding-left: 24px; }
+  .wordmark { font-family: var(--font-brand); font-weight: 700; font-size: 1.05rem; color: var(--buc-bosque); white-space: nowrap; }
+  .logo { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; box-shadow: 0 0 0 1px rgb(22 22 22 / 0.08); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .marquee__track { animation: hacia-derecha 48s linear infinite; }
+    .marquee:hover .marquee__track, .marquee:focus-within .marquee__track { animation-play-state: paused; }
+    /* De izquierda a derecha: la copia duplicada entra por la izquierda */
+    @keyframes hacia-derecha { from { transform: translateX(calc(-50% - clamp(8px, 1vw, 14px))); } to { transform: translateX(0); } }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee { -webkit-mask: none; mask: none; }
+    .marquee__track { flex-wrap: wrap; justify-content: center; width: auto; }
+    .marquee__track li[aria-hidden='true'] { display: none; }
+  }
+</style>

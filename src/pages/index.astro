@@ -1,0 +1,285 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Polaroid from '../components/Polaroid.astro';
+import JornadaCard from '../components/JornadaCard.astro';
+import Icon from '../components/Icon.astro';
+import Doodle from '../components/Doodle.astro';
+import Carrusel from '../components/Carrusel.astro';
+import Aliados from '../components/Aliados.astro';
+import buki from '../assets/buki.png';
+import logoSenaju from '../assets/acreditaciones/senaju.webp';
+import logoMml from '../assets/acreditaciones/munlima.webp';
+import { site, convocatoria, lineas } from '../data/site';
+import { proximas, foto, hayEjemplos } from '../lib/jornadas';
+import { url } from '../lib/url';
+
+const siguientes = proximas();
+const proxima = siguientes[0];
+const iconos = { animalista: 'paw', ambiental: 'wave', social: 'hands' } as const;
+const fotosLinea = {
+  animalista: [{ f: 'animalista-abrazo', c: '¡¡amamosss!! <3', ratio: 0.8 }, { f: 'animalista-equipo', c: 'albergue con el equipo', ratio: 1 }],
+  ambiental: [{ f: 'ambiental-playa', c: 'playa limpia ✓', ratio: 1 }, { f: 'ambiental-bolsas', c: 'todo esto salió de la orilla', ratio: 1 }],
+  social: [{ f: 'social-olla', c: 'olla común', ratio: 1 }, { f: 'equipo-grupo', c: 'juntos somos más', ratio: 1 }],
+} as const;
+const buccito = [
+  ['B', 'ondad', 'que se convierte en acción'],
+  ['U', 'nidos', 'por los animales, el ambiente y la sociedad'],
+  ['C', 'ompromiso', 'con generar un cambio real'],
+  ['C', 'ariño', 'en cada actividad y encuentro'],
+  ['I', 'nspiración', 'para ayudar y crecer juntos'],
+  ['T', 'rabajo en equipo', 'que deja huella'],
+  ['O', 'portunidades', 'para aprender, servir y conectar'],
+];
+---
+<Base>
+  <!-- HERO -->
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero__copy">
+      <h1 id="hero-title" class="display hero__title">¿Te sumas a transformar <em>amor en acción?</em></h1>
+      <p class="lead">Jornadas animalistas, ambientales y sociales cada fin de semana en Lima. <strong>No necesitas experiencia previa</strong>: solo las ganas de hacer la diferencia.</p>
+      <div class="hero__cta">
+        <a class="btn" href={url('/postula')}>{convocatoria.abierta ? 'Postula a BUC' : 'Únete al canal'} <Icon name="arrow" /></a>
+        <a class="link-hand" href={url('/voluntariados#jornadas')}>ver próximas jornadas</a>
+      </div>
+      <ul class="proof" aria-label="Respaldo">
+        <li class="acred"><span class="acred__logos"><Image src={logoSenaju} alt="SENAJU" width={112} height={112} /><Image src={logoMml} alt="Municipalidad de Lima" width={112} height={112} /></span> <span>Acreditados por <strong>SENAJU</strong> y la <strong>Municipalidad de Lima</strong></span></li>
+        <li><span><strong class="num">+1000</strong> postulantes en la convocatoria 2026-II</span></li>
+      </ul>
+    </div>
+
+    <div class="hero__album">
+      <Polaroid class="p-big" src={foto('hero-perro')} alt="Una voluntaria abraza a un perro negro rescatado en un albergue" caption="¡¡amamosss!! <3" ratio={0.86} rotate={3} width={430} settle={0} lift eager />
+      <Polaroid class="p-small" src={foto('hero-pareja')} alt="Dos voluntarios con polos lima de BUC forman un corazón con los brazos en un parque" caption="todos tenemos un corazón verde" rotate={-6} width={260} holder="clip" settle={160} lift eager />
+      <a class="sticker s-que" href="#lineas">¿qué hacemos?</a>
+      {proxima && (
+        <div class="t-next settle" style="--d: 320ms; --r: 0deg" data-jornadas>
+          <JornadaCard j={proxima} rotate={-2} tag="próxima jornada" heading="p" />
+        </div>
+      )}
+      <Image class="buki" src={buki} alt="Buki, el zorro mascota de BUC, sostiene el sello de Buscando un Cambio" width={190} loading="eager" />
+      <Doodle kind="rays" class="d-rays" />
+      <Doodle kind="heart" class="d-heart1" />
+      <Doodle kind="sparkle" class="d-spark" />
+    </div>
+  </section>
+
+  <!-- MOMENTOS: banner a todo el ancho -->
+  <section class="momentos" aria-labelledby="mom-title">
+    <h2 id="mom-title" class="sr-only">Así se vive un domingo BUC</h2>
+    <Carrusel />
+  </section>
+
+  <!-- LÍNEAS (papel claro) -->
+  <section id="lineas" class="band section lineas" aria-labelledby="lineas-title">
+    <div class="wrap">
+      <header class="sec-head rise">
+        <h2 id="lineas-title" class="display display--ink section-title">Tres formas de <em>sumarte</em></h2>
+        <p class="lead">Elige la causa que más te mueve. Muchos buccitos terminan probando las tres.</p>
+      </header>
+      <div class="lineas__list">
+        {lineas.map((l, i) => (
+          <article class:list={['linea', i % 2 === 1 && 'linea--flip']} id={l.id}>
+            <div class="linea__fotos">
+              <span class:list={['sticker', 'linea__tag', i === 1 && 'sticker--lima', i === 2 && 'sticker--sol']} style={`transform: rotate(${i % 2 ? 4 : -4}deg)`}><Icon name={iconos[l.id]} /> {l.nombre}</span>
+              {fotosLinea[l.id].map((p, k) => (
+                <Polaroid class={k === 0 ? 'lf-a' : 'lf-b'} src={foto(p.f)} alt={`Jornada ${l.nombre.toLowerCase()} de BUC`} caption={p.c} ratio={p.ratio} rotate={k === 0 ? (i % 2 ? 3 : -3) : (i % 2 ? -5 : 5)} width={k === 0 ? 400 : 260} holder={k === 0 ? 'tape' : 'clip'} paste lift />
+              ))}
+            </div>
+            <div class="linea__txt rise">
+              <h3 class="hand linea__resumen">{l.resumen}</h3>
+              <ul class="checks">
+                {l.actividades.map((a) => <li><Icon name="check" /> {a}</li>)}
+              </ul>
+              <p class="lugares"><Icon name="pin" /> {l.lugares}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- JORNADAS (lima) -->
+  <section class="section jornadas" aria-labelledby="jornadas-title">
+    <div class="wrap">
+      <header class="sec-head sec-head--row rise">
+        <div>
+          <h2 id="jornadas-title" class="display section-title">Próximas <em>jornadas</em></h2>
+          <p class="lead">Las jornadas abiertas también reciben a quienes aún no son voluntarios oficiales. Anótate a una y conócenos.</p>
+        </div>
+        <a class="link-hand" href={url('/voluntariados#jornadas')}>ver todas <Icon name="arrow" /></a>
+      </header>
+      <ul class="jornadas__grid" data-jornadas>
+        {siguientes.slice(0, 3).map((j, i) => (
+          <li data-jornada-item><JornadaCard j={j} rotate={[-1.5, 1, -0.6][i]} full paste /></li>
+        ))}
+      </ul>
+      <p class="vacio hand" data-jornadas-vacio hidden={siguientes.length > 0}>No hay jornadas publicadas por ahora. Síguenos en el <a href={site.redes.canalWhatsapp}>canal de WhatsApp</a> para enterarte primero.</p>
+      {/* Jornadas de demostración: se reemplazan en src/data/jornadas.json */}
+      {hayEjemplos && <p class="nota-ejemplo">Estas fechas son de ejemplo. Las próximas jornadas se anuncian en el <a href={site.redes.canalWhatsapp}>canal de WhatsApp</a>.</p>}
+    </div>
+  </section>
+
+  <!-- SER BUCCITO (bosque) -->
+  <section class="section dark dark--torn on-dark buccito" aria-labelledby="buccito-title">
+    <div class="wrap buccito__in">
+      <div class="buccito__head rise">
+        <h2 id="buccito-title" class="display section-title">Ser buccito <em>es…</em></h2>
+        <p class="buccito__cierre hand">…ser parte de una familia que transforma realidades.</p>
+      </div>
+      <ol class="acro">
+        {buccito.map(([l, resto, frase]) => (
+          <li class="rise"><span class="acro__l" aria-hidden="true">{l}</span><p><strong>{l}{resto}</strong> {frase}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ANTES DE POSTULAR (papel claro) -->
+  <section class="band section requisitos" aria-labelledby="req-title">
+    <div class="wrap req">
+      <div class="req__buki rise">
+        <Image src={buki} alt="" width={320} />
+        <p class="sticker sticker--sol bubble">¡te esperamos!</p>
+      </div>
+      <div class="req__txt rise">
+        <h2 id="req-title" class="display display--ink section-title">Antes de <em>postular</em></h2>
+        <ul class="req__list">
+          <li><Icon name="pin" /> <span><strong>Vives en Lima</strong> y puedes ir a jornadas presenciales los fines de semana.</span></li>
+          <li><Icon name="calendar" /> <span>Te comprometes <strong>mínimo 6 meses</strong> como voluntario/a activo/a.</span></li>
+          <li><Icon name="shield" /> <span>Tienes <strong>15 años o más</strong>. Si eres menor, necesitas la autorización de tu padre, madre o apoderado.</span></li>
+          <li><Icon name="heart" /> <span><strong>No necesitas experiencia</strong> ni CV: cuentan tus ganas.</span></li>
+        </ul>
+        <div class="hero__cta">
+          <a class="btn" href={url('/postula')}>{convocatoria.abierta ? 'Quiero postular' : 'Únete al canal'} <Icon name="arrow" /></a>
+          <a class="link-hand" href={url('/preguntas')}>más preguntas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALIADOS (lima) -->
+  <section class="section aliados" aria-labelledby="aliados-title">
+    <div class="wrap">
+      <h2 id="aliados-title" class="hand aliados__title rise">hemos sumado esfuerzos con</h2>
+    </div>
+    <Aliados />
+  </section>
+</Base>
+
+<script>
+  import '../scripts/jornadas';
+</script>
+
+<style>
+  /* ---------- HERO ---------- */
+  .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: clamp(28px, 4vw, 72px); align-items: center; padding-block: clamp(12px, 2vw, 28px) clamp(72px, 8vw, 110px); }
+  .hero__copy { container-type: inline-size; }
+  /* El título se ajusta al ancho de su columna: nunca se desborda sobre el álbum */
+  .hero__title { font-size: clamp(2.6rem, 12.4cqi, 6rem); }
+  .hero__copy .lead { margin-top: clamp(20px, 2.4vw, 32px); color: var(--buc-noche); }
+  .hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: clamp(24px, 3vw, 36px); }
+  .proof { list-style: none; padding: 0; margin-top: clamp(28px, 3vw, 40px); display: flex; flex-wrap: wrap; gap: 10px 28px; font-family: var(--font-brand); font-weight: 600; font-size: 0.92rem; color: var(--buc-bosque); }
+  .proof li { display: flex; align-items: center; gap: 8px; }
+  .proof strong { font-weight: 700; color: var(--buc-bosque); }
+  .proof .num { font-family: var(--font-display); font-weight: 900; font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+  .proof :global(svg) { width: 22px; height: 22px; flex: none; }
+  .acred { gap: 12px !important; }
+  .acred__logos { display: flex; flex: none; gap: 8px; }
+  .acred__logos :global(img) { width: 56px; height: 56px; border-radius: 12px; object-fit: contain; background: var(--buc-blanco); box-shadow: var(--shadow-card); }
+
+  .hero__album { position: relative; aspect-ratio: 0.9; width: 100%; max-width: 660px; justify-self: end; }
+  .hero__album :global(.p-big) { position: absolute; left: 16%; top: 2%; width: 64%; z-index: 1; }
+  .hero__album :global(.p-small) { position: absolute; left: 0; top: 50%; width: 40%; z-index: 2; }
+  .s-que { position: absolute; right: 2%; top: 0; z-index: 4; text-decoration: none; transform: rotate(5deg); }
+  .s-que:hover { background: var(--buc-bosque-700); }
+  .t-next { position: absolute; left: 45%; top: 60%; width: 55%; z-index: 3; }
+  .t-next :global(.ticket) { max-width: none; }
+  .hero__album :global(.buki) { position: absolute; right: -4%; top: 30%; width: 19%; z-index: 4; transform: rotate(6deg); filter: drop-shadow(0 8px 12px rgb(0 0 0 / 0.16)); }
+  .hero__album :global(.d-rays) { left: 6%; top: 8%; width: 8%; }
+  .hero__album :global(.d-heart1) { left: 9%; top: 42%; width: 4.5%; }
+  .hero__album :global(.d-spark) { right: 4%; top: 52%; width: 6%; color: var(--buc-bosque); }
+
+  /* ---------- Encabezados de sección ---------- */
+  .sec-head { max-width: 760px; }
+  .sec-head .lead { margin-top: 14px; color: var(--buc-noche); }
+  .sec-head--row { max-width: none; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 32px; }
+  .sec-head--row > div { max-width: 720px; }
+
+  /* ---------- LÍNEAS ---------- */
+  .lineas__list { display: grid; gap: clamp(72px, 9vw, 140px); margin-top: clamp(56px, 6vw, 96px); }
+  .linea { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(32px, 4vw, 72px); align-items: center; }
+  .linea--flip { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
+  .linea--flip .linea__fotos { order: 2; }
+  .linea__fotos { position: relative; aspect-ratio: 1.08; width: 100%; max-width: 720px; justify-self: center; }
+  .linea__tag { position: absolute; z-index: 3; left: 0; top: -18px; }
+  .linea--flip .linea__tag { left: auto; right: 0; }
+  .linea__fotos :global(.lf-a) { position: absolute; left: 4%; top: 0; width: 60%; }
+  .linea__fotos :global(.lf-b) { position: absolute; right: 2%; bottom: 0; width: 42%; }
+  .linea__txt { max-width: 560px; }
+  .linea__resumen { position: relative; font-size: clamp(2rem, 1.4rem + 2vw, 3.1rem); color: var(--buc-bosque); line-height: 1.05; margin: 0 0 22px; max-width: 18ch; }
+  .checks { list-style: none; padding: 0; display: grid; gap: 10px; }
+  .checks li { display: flex; gap: 10px; align-items: flex-start; font-size: 1.05rem; }
+  .checks :global(svg) { width: 22px; height: 22px; flex: none; margin-top: 3px; color: var(--buc-bosque); stroke-width: 3; }
+  .lugares { display: flex; gap: 8px; align-items: flex-start; margin-top: 20px; padding-top: 16px; border-top: 1.5px dashed var(--buc-lima-300); font-size: 0.95rem; color: var(--buc-bosque); font-weight: 600; }
+  .lugares :global(svg) { width: 20px; height: 20px; flex: none; margin-top: 2px; }
+
+  /* ---------- JORNADAS ---------- */
+  .jornadas { padding-top: clamp(96px, 11vw, 150px); }
+  .jornadas__grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 3vw, 44px); margin-top: clamp(40px, 5vw, 64px); }
+  .jornadas__grid > li { display: flex; }
+  .jornadas__grid :global(.ticket) { width: 100%; }
+  .vacio { font-size: 1.5rem; color: var(--buc-bosque); margin-top: 28px; }
+  .nota-ejemplo { margin-top: 32px; font-size: 0.92rem; color: var(--buc-bosque); }
+  .nota-ejemplo a { color: var(--buc-bosque); font-weight: 600; }
+
+  /* ---------- BUCCITO ---------- */
+  .buccito { overflow-x: clip; }
+  .buccito__in { display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: clamp(32px, 6vw, 100px); align-items: center; }
+  .buccito__cierre { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.3rem); color: var(--buc-lima); margin-top: 18px; line-height: 1.15; }
+  .acro { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: clamp(22px, 2.8vw, 34px) clamp(28px, 4vw, 48px); }
+  .acro li { display: flex; align-items: center; gap: 16px; padding-bottom: clamp(18px, 2vw, 24px); border-bottom: 1.5px dashed rgb(166 216 108 / 0.35); }
+  .acro__l { font-family: var(--font-display); font-weight: 900; font-size: clamp(3.6rem, 2.8rem + 2.4vw, 5.2rem); line-height: 0.8; color: var(--buc-amarillo); min-width: 0.9em; text-align: center; }
+  .acro p { font-size: 1.1rem; line-height: 1.4; color: var(--buc-lima-100); }
+  .acro strong { color: var(--buc-blanco); font-weight: 700; }
+
+  /* ---------- REQUISITOS ---------- */
+  .req { display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); gap: clamp(28px, 5vw, 90px); align-items: center; }
+  .req__buki { position: relative; justify-self: center; }
+  .req__buki img { width: min(100%, 360px); transform: rotate(-4deg); filter: drop-shadow(0 12px 18px rgb(0 0 0 / 0.16)); }
+  .bubble { position: absolute; top: 2%; right: -6%; transform: rotate(6deg); }
+  .req__list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: clamp(24px, 3vw, 36px) 0 8px; }
+  .req__list li { display: flex; gap: 12px; align-items: flex-start; background: var(--buc-blanco); padding: 18px 18px 20px; border-radius: 10px; box-shadow: var(--shadow-card); font-size: 1.02rem; line-height: 1.5; }
+  .req__list :global(svg) { width: 26px; height: 26px; flex: none; color: var(--buc-bosque); margin-top: 1px; }
+
+  /* ---------- ALIADOS ---------- */
+  .aliados { padding-top: clamp(96px, 11vw, 150px); }
+  .aliados__title { font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.6rem); color: var(--buc-bosque); text-align: center; }
+  .aliados :global(.marquee) { margin-top: 24px; }
+  .momentos { position: relative; }
+  .momentos::before { content: ''; position: absolute; left: 0; right: 0; top: -10px; height: 40px; z-index: 3; transform: scaleY(-1); background: url('../assets/torn-lima.webp') 23% bottom / 900px 40px repeat-x; pointer-events: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (min-width: 1100px) { .hero { min-height: min(calc(100svh - 90px), 860px); } }
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; padding-top: 4px; }
+    .hero__title { font-size: clamp(2.6rem, 11.5cqi, 5rem); }
+    .hero__album { justify-self: center; max-width: 560px; margin-top: 10px; }
+    .linea, .linea--flip, .req, .buccito__in { grid-template-columns: 1fr; }
+    .linea--flip .linea__fotos { order: 0; }
+    .linea__fotos { aspect-ratio: 1.02; }
+    .req__buki img { width: 220px; }
+  }
+  @media (max-width: 600px) {
+    .req__list { grid-template-columns: 1fr; }
+    .hero { padding-bottom: 96px; }
+    .hero__album { aspect-ratio: 0.5; }
+    .hero__album :global(.p-big) { left: 22%; width: 74%; }
+    .hero__album :global(.p-small) { top: 30%; width: 46%; }
+    .t-next { left: 10%; top: 67%; width: 84%; }
+    .t-next :global(.estado) { top: auto; bottom: -14px; right: -8px; transform: rotate(-4deg); }
+    .hero__album :global(.buki) { left: -2%; right: auto; top: 4%; width: 22%; }
+    .s-que { top: -3%; }
+    .hero__album :global(.d-rays), .hero__album :global(.d-heart1), .hero__album :global(.d-spark) { display: none; }
+  }
+</style>

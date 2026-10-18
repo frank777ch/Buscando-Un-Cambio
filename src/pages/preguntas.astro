@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import buki from '../assets/buki.png';
+import PageHead from '../components/PageHead.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+import { url } from '../lib/url';
+
+const faqs = [
+  { q: '¿Necesito experiencia previa?', a: 'No. Solo necesitas las ganas de participar y hacer la diferencia. En BUC aprendes en cada jornada junto a otros voluntarios.' },
+  { q: '¿Puedo postular si soy de provincia?', a: 'Por el momento la convocatoria está dirigida a personas que puedan asistir presencialmente a las actividades que realizamos los fines de semana en Lima, por lo que no es posible postular desde provincia.' },
+  { q: '¿Cómo hago mi CV si nunca he trabajado?', a: 'El CV no es obligatorio. Si aún no has trabajado, puedes contarnos las actividades extracurriculares en las que hayas participado, como otros voluntariados, concursos, talleres o proyectos.' },
+  { q: '¿Cuánto tiempo dura el voluntariado?', a: 'El voluntariado en BUC tiene un tiempo mínimo de 6 meses como voluntario/a activo/a, lo que implica asistir de manera constante a las actividades. Si no se cumple este periodo, solo se otorgan certificados por las actividades específicas en las que participaste, como participación externa y no como voluntariado oficial.' },
+  { q: '¿Desde qué edad puedo participar?', a: 'Desde los 15 años. Si eres menor de edad necesitas la autorización de tu padre, madre o apoderado, y debes enviarla antes de la actividad.' },
+  { q: '¿Qué días son las jornadas?', a: 'Los fines de semana, por lo general sábados o domingos en la mañana. Cada jornada publica su punto de encuentro y su horario.' },
+  { q: '¿Puedo ir a una jornada sin ser voluntario oficial?', a: 'Sí. Muchas jornadas tienen convocatoria externa para jóvenes interesados. Revisa las próximas jornadas y anótate en la que te acomode.' },
+  { q: '¿A qué áreas puedo postular?', a: 'Al voluntariado general o a una de las comisiones: Líderes de voluntariado, Marketing y audiovisuales, o Gestión e impacto social.' },
+  { q: '¿Cómo me entero de nuevas convocatorias?', a: 'Sigue el canal de difusión de WhatsApp y nuestro Instagram @buscandouncambio.pe: ahí publicamos cada convocatoria y jornada apenas se abre.' },
+];
+---
+<Base title="Preguntas frecuentes" description="Resolvemos tus dudas antes de postular al voluntariado de Buscando un Cambio: requisitos, edad, duración, provincia y más.">
+  <PageHead title="Preguntas" accent="frecuentes" lead="Sabemos que puedes tener dudas antes de dar el primer paso. Aquí respondemos las más comunes.">
+    <div class="ph-buki">
+      <Image src={buki} alt="Buki, el zorro mascota de BUC" width={260} />
+      <span class="sticker sticker--sol">¡pregunta sin miedo!</span>
+    </div>
+  </PageHead>
+
+  <section class="wrap faq" aria-label="Preguntas y respuestas">
+    {faqs.map((f, i) => (
+      <details class="q" open={i === 0} style={`--r:${[-0.5, 0.4, -0.3, 0.5][i % 4]}deg`}>
+        <summary><span>{f.q}</span><Icon name="arrow" class="q__i" /></summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </section>
+
+  <section class="band section mas" aria-labelledby="mas-title">
+    <div class="wrap mas__sheet">
+      <h2 id="mas-title" class="display display--ink">¿Te quedó <em>otra duda?</em></h2>
+      <p class="lead">Escríbenos y te respondemos.</p>
+      <div class="mas__cta">
+        <a class="btn" href={`https://wa.me/${site.contacto.whatsapp}`}>Escribir por WhatsApp <Icon name="whatsapp" /></a>
+        <a class="link-hand" href={`mailto:${site.contacto.email}`}>{site.contacto.email}</a>
+      </div>
+      <p class="mas__post">¿Listo? <a href={url('/postula')}>Postula a BUC</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .faq { display: grid; gap: 14px; max-width: 900px; }
+  .q { background: var(--buc-blanco); border-radius: 6px; box-shadow: var(--shadow-card); transform: rotate(var(--r)); transition: transform var(--dur-base) var(--ease-out); }
+  .q[open] { transform: rotate(0deg); }
+  .q summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 22px; font-family: var(--font-display); font-weight: 900; font-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.45rem); line-height: 1.3; color: var(--buc-bosque); }
+  .q summary::-webkit-details-marker { display: none; }
+  .q summary :global(.q__i) { width: 26px; height: 26px; flex: none; transition: transform var(--dur-base) var(--ease-out); transform: rotate(90deg); }
+  .q[open] summary :global(.q__i) { transform: rotate(-90deg); }
+  .q p { padding: 0 22px 22px; font-size: 1.05rem; }
+  .mas { margin-top: clamp(64px, 8vw, 110px); }
+  .mas__sheet { text-align: center; display: grid; justify-items: center; }
+  .mas__cta { justify-content: center; }
+  .ph-buki { position: relative; max-width: 260px; margin-inline: auto; }
+  .ph-buki :global(img) { transform: rotate(-5deg); filter: drop-shadow(0 10px 16px rgb(0 0 0 / 0.16)); }
+  .ph-buki .sticker { position: absolute; top: 0; right: -18%; transform: rotate(7deg); }
+  @media (max-width: 860px) { .ph-buki { max-width: 180px; } }
+  .mas__sheet h2 { font-size: clamp(2.2rem, 1.5rem + 2.4vw, 3.6rem); }
+  .mas__sheet .lead { margin-top: 10px; }
+  .mas__cta { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; margin-top: 22px; }
+  .mas__post { margin-top: 22px; font-family: var(--font-hand); font-size: 1.5rem; color: var(--buc-bosque); }
+  .mas__post a { color: var(--buc-bosque); }
+</style>

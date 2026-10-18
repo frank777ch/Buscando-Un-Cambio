@@ -1,0 +1,140 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Polaroid from '../components/Polaroid.astro';
+import Icon from '../components/Icon.astro';
+import buki from '../assets/buki.png';
+import Aliados from '../components/Aliados.astro';
+import logoSenaju from '../assets/acreditaciones/senaju.webp';
+import logoMml from '../assets/acreditaciones/munlima.webp';
+import { foto } from '../lib/jornadas';
+import { url } from '../lib/url';
+
+const historia = [
+  // PENDIENTE (brand/BRAND.md §10.6): confirmar con BUC la fecha oficial de fundación.
+  { fecha: 'Nov 2021', texto: 'Primeras publicaciones de Buscando un Cambio, con un sueño: transformar el mundo con pequeñas acciones. Empezamos con limpiezas y ecoladrillos.' },
+  { fecha: 'Feb 2022', texto: 'BUC queda inscrito en la Secretaría Nacional de la Juventud (SENAJU).' },
+  { fecha: '2022', texto: 'Llegan las primeras alianzas con otras organizaciones juveniles y las primeras convocatorias para limpiar playas.' },
+  { fecha: 'Jul 2024', texto: 'Renovamos nuestra misión, visión y valores: «porque todos tenemos un corazón verde».' },
+  { fecha: 'Ago 2025', texto: 'Presentamos a Buki, nuestro zorro mascota, con el nombre que eligió la comunidad.' },
+  { fecha: 'Set 2025', texto: 'Celebramos nuestro aniversario #4AñosBUC con jornadas en playas, ríos, albergues, chocolatadas y ollas comunes.' },
+  { fecha: '2026', texto: 'La convocatoria 2026-II supera los 1000 postulantes.' },
+];
+const valores = [
+  ['Perseverancia', 'constancia y dedicación para superar desafíos y lograr un impacto positivo.'],
+  ['Respeto', 'hacia todas las formas de vida y la diversidad cultural.'],
+  ['Amor', 'por la naturaleza, los animales y las personas, en cada acción.'],
+  ['Empatía', 'para entender y compartir los sentimientos y necesidades de los demás.'],
+  ['Compromiso', 'con nuestra misión, actuando con ética en todo lo que hacemos.'],
+];
+const comisiones = [
+  ['Líderes de voluntariado', 'Organizan las jornadas y acompañan a cada grupo de voluntarios.'],
+  ['Marketing y audiovisuales', 'Diseñan, graban y cuentan las historias de BUC.'],
+  ['Gestión e impacto social', 'Planifican proyectos y nuevas iniciativas.'],
+];
+---
+<Base title="Nosotros" description="Buscando un Cambio es un voluntariado juvenil de Lima acreditado por SENAJU y la Municipalidad de Lima. Conoce nuestra historia, misión y valores.">
+  <PageHead title="Todos tenemos un" accent="corazón verde" lead="Somos una comunidad de jóvenes que promueve la conciencia ambiental, el bienestar animal y la justicia social con jornadas prácticas y educativas en Lima.">
+    <div class="ph-collage">
+      <Polaroid src={foto('equipo-parque')} alt="Voluntarios de BUC con polos lima reunidos en un parque" caption="buccitos 2024" rotate={-4} width={360} settle={0} eager />
+      <Image class="ph-buki" src={buki} alt="Buki, el zorro mascota de BUC" width={160} />
+    </div>
+  </PageHead>
+
+  <section class="band section" aria-label="Misión y visión">
+   <div class="wrap mvv">
+    <article class="mv mv--mision rise">
+      <span class="tape" aria-hidden="true"></span>
+      <h2 class="display display--ink">Nuestra <em>misión</em></h2>
+      <p>En Buscando un Cambio nos dedicamos a promover la conciencia ambiental, el bienestar animal y la justicia social a través de actividades educativas y prácticas. Trabajamos para empoderar a las comunidades y fomentar un cambio positivo, creando un futuro más sostenible y equitativo para todos. Buscamos la participación activa de jóvenes en la protección del medio ambiente, el cuidado de animales en situación de vulnerabilidad y el apoyo a comunidades necesitadas.</p>
+    </article>
+    <article class="mv mv--vision rise">
+      <span class="tape" aria-hidden="true"></span>
+      <h2 class="display display--ink">Nuestra <em>visión</em></h2>
+      <p>Ser una organización líder en la promoción de la conciencia ambiental y social en Perú, alcanzando cada vez más comunidades y convirtiéndonos en un referente de cambio positivo a nivel nacional. Aspiramos a educar e inspirar a las personas para que se conviertan en agentes de cambio, comprometidos con la protección del medio ambiente, el respeto por los animales y la solidaridad social.</p>
+    </article>
+   </div>
+  </section>
+
+  <section class="section dark on-dark valores" aria-labelledby="val-title">
+    <div class="wrap">
+      <h2 id="val-title" class="display section-title">Nuestros <em>valores</em></h2>
+      <ul class="val">
+        {valores.map(([v, d]) => <li><span class="val__n">{v}</span><p>{d}</p></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section historia" aria-labelledby="his-title">
+    <div class="wrap his">
+      <h2 id="his-title" class="display section-title">Nuestra <em>historia</em></h2>
+      <ol class="linea-tiempo">
+        {historia.map((h, i) => (
+          <li class="rise" style={`--r:${[-1.2, 0.8, -0.6, 1, -0.8, 0.6, -1][i]}deg`}><time class="hand">{h.fecha}</time><p>{h.texto}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band section equipo" aria-labelledby="eq-title">
+    <div class="wrap eq">
+      <Polaroid src={foto('equipo-evento')} alt="Voluntarias de BUC con polos lima en un evento junto a un aliado" caption="así nos organizamos" rotate={3} width={460} holder="clip" paste lift />
+      <div>
+        <h2 id="eq-title" class="display display--ink section-title">Cómo nos <em>organizamos</em></h2>
+        <p class="lead">Una directiva coordina BUC y los voluntarios oficiales se suman a las jornadas. Quien quiere aportar más puede postular a una comisión:</p>
+        <ul class="com">
+          {comisiones.map(([c, d]) => <li><span class="sticker">{c}</span><p>{d}</p></li>)}
+        </ul>
+        <a class="btn" href={url('/postula')}>Postula a una comisión <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section aliados" aria-labelledby="al-title">
+    <div class="wrap">
+      <h2 id="al-title" class="display section-title">Acreditación y <em>aliados</em></h2>
+      <div class="acred">
+        <p class="acred__item paste" style="--r: -1.2deg"><Image src={logoSenaju} alt="SENAJU" width={160} height={160} /> <span>Inscritos en la <strong>Secretaría Nacional de la Juventud (SENAJU)</strong> desde febrero de 2022</span></p>
+        <p class="acred__item paste" style="--r: 1deg"><Image src={logoMml} alt="Municipalidad de Lima" width={160} height={160} /> <span>Acreditados por la <strong>Municipalidad de Lima</strong></span></p>
+      </div>
+    </div>
+    <Aliados />
+  </section>
+</Base>
+
+<style>
+  .ph-collage { position: relative; max-width: 420px; margin-left: auto; }
+  .ph-collage :global(.ph-buki) { position: absolute; right: -8%; bottom: -12%; width: 38%; transform: rotate(6deg); filter: drop-shadow(0 8px 12px rgb(0 0 0 / 0.16)); }
+  .mvv { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 64px); }
+  .mv { position: relative; background: var(--buc-blanco); padding: clamp(30px, 3.5vw, 48px); border-radius: 4px; box-shadow: 0 2px 4px rgb(0 0 0 / 0.08), 0 16px 34px rgb(22 22 22 / 0.12); }
+  .mv--mision { --r: -0.8deg; transform: rotate(var(--r)); }
+  .mv--vision { --r: 0.7deg; transform: rotate(var(--r)); margin-top: clamp(0px, 4vw, 56px); }
+  .mv h2 { font-size: clamp(2rem, 1.5rem + 1.8vw, 3rem); margin-bottom: 16px; }
+  .mv p { font-size: 1.05rem; }
+  .val { list-style: none; padding: 0; margin-top: clamp(32px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 28px 32px; }
+  .val__n { display: block; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); color: var(--buc-amarillo); line-height: 1; }
+  .val p { margin-top: 8px; color: var(--buc-lima-100); }
+  .linea-tiempo { list-style: none; padding: 0; margin-top: clamp(32px, 4vw, 48px); display: grid; gap: 18px; position: relative; }
+  .linea-tiempo::before { content: ''; position: absolute; left: 92px; top: 8px; bottom: 8px; border-left: 3px dashed var(--buc-bosque); opacity: 0.45; }
+  .linea-tiempo li { display: grid; grid-template-columns: 76px 1fr; gap: 36px; align-items: start; }
+  .linea-tiempo time { font-size: 1.5rem; color: var(--buc-bosque); line-height: 1.1; padding-top: 10px; text-align: right; }
+  .linea-tiempo p { background: var(--buc-blanco); padding: 14px 18px; border-radius: 4px; box-shadow: var(--shadow-card); transform: rotate(var(--r)); max-width: 62ch; }
+  .eq { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
+  .eq .lead { margin: 16px 0 24px; color: var(--buc-noche); }
+  .com { list-style: none; padding: 0; display: grid; gap: 16px; margin-bottom: 28px; }
+  .com li { display: grid; gap: 6px; justify-items: start; }
+  .com .sticker { font-size: 1.35rem; }
+  .acred { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
+  .acred__item { display: flex; gap: 14px; align-items: center; padding: 20px 22px; max-width: none; background: var(--buc-blanco); border: 2.5px dashed var(--buc-bosque); border-radius: 12px; transform: rotate(var(--r)); box-shadow: var(--shadow-card); }
+  .acred__item :global(img) { width: 72px; height: 72px; flex: none; border-radius: 12px; object-fit: contain; background: var(--buc-blanco); box-shadow: 0 0 0 1px rgb(22 22 22 / 0.08); }
+  .aliados :global(.marquee) { margin-top: 32px; }
+  @media (max-width: 860px) {
+    .mvv, .eq, .acred { grid-template-columns: 1fr; }
+    .mv--vision { margin-top: 0; }
+    .ph-collage { margin: 10px auto 30px; max-width: 320px; }
+    .linea-tiempo::before { left: 64px; }
+    .linea-tiempo li { grid-template-columns: 52px 1fr; gap: 26px; }
+    .linea-tiempo time { font-size: 1.2rem; }
+  }
+</style>

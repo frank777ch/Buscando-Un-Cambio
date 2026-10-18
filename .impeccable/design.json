@@ -1,0 +1,729 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T21:10:17.465494+00:00",
+  "title": "Design System: Buscando un Cambio",
+  "extensions": {
+    "colorMeta": {
+      "verde-logo": {
+        "role": "tertiary",
+        "displayName": "Verde Sello",
+        "canonical": "#43D029",
+        "oklch": "oklch(75.3% 0.231 141.1)",
+        "tonalRamp": [
+          "oklch(15% 0.125 141.1)",
+          "oklch(25% 0.142 141.1)",
+          "oklch(35% 0.158 141.1)",
+          "oklch(48% 0.180 141.1)",
+          "oklch(60% 0.200 141.1)",
+          "oklch(72% 0.180 141.1)",
+          "oklch(84% 0.160 141.1)",
+          "oklch(95% 0.142 141.1)"
+        ]
+      },
+      "verde": {
+        "role": "secondary",
+        "displayName": "Verde Rotulador",
+        "canonical": "#84CC2C",
+        "oklch": "oklch(76.9% 0.196 131.6)",
+        "tonalRamp": [
+          "oklch(15% 0.123 131.6)",
+          "oklch(25% 0.139 131.6)",
+          "oklch(35% 0.156 131.6)",
+          "oklch(48% 0.177 131.6)",
+          "oklch(60% 0.196 131.6)",
+          "oklch(72% 0.177 131.6)",
+          "oklch(84% 0.157 131.6)",
+          "oklch(95% 0.139 131.6)"
+        ]
+      },
+      "lima": {
+        "role": "primary",
+        "displayName": "Lima Papel",
+        "canonical": "#A6D86C",
+        "oklch": "oklch(82.4% 0.148 129.6)",
+        "tonalRamp": [
+          "oklch(15% 0.092 129.6)",
+          "oklch(25% 0.105 129.6)",
+          "oklch(35% 0.117 129.6)",
+          "oklch(48% 0.133 129.6)",
+          "oklch(60% 0.148 129.6)",
+          "oklch(72% 0.133 129.6)",
+          "oklch(84% 0.118 129.6)",
+          "oklch(95% 0.105 129.6)"
+        ]
+      },
+      "bosque": {
+        "role": "primary",
+        "displayName": "Verde Bosque",
+        "canonical": "#185C0C",
+        "oklch": "oklch(41.7% 0.128 141.1)",
+        "tonalRamp": [
+          "oklch(15% 0.080 141.1)",
+          "oklch(25% 0.091 141.1)",
+          "oklch(35% 0.102 141.1)",
+          "oklch(48% 0.115 141.1)",
+          "oklch(60% 0.128 141.1)",
+          "oklch(72% 0.115 141.1)",
+          "oklch(84% 0.103 141.1)",
+          "oklch(95% 0.091 141.1)"
+        ]
+      },
+      "bosque-700": {
+        "role": "primary",
+        "displayName": "Bosque Profundo",
+        "canonical": "#12470A",
+        "oklch": "oklch(35.0% 0.105 141.3)",
+        "tonalRamp": [
+          "oklch(15% 0.066 141.3)",
+          "oklch(25% 0.075 141.3)",
+          "oklch(35% 0.083 141.3)",
+          "oklch(48% 0.095 141.3)",
+          "oklch(60% 0.105 141.3)",
+          "oklch(72% 0.095 141.3)",
+          "oklch(84% 0.084 141.3)",
+          "oklch(95% 0.075 141.3)"
+        ]
+      },
+      "amarillo": {
+        "role": "secondary",
+        "displayName": "Amarillo Marcador",
+        "canonical": "#FCDC62",
+        "oklch": "oklch(89.9% 0.144 94.6)",
+        "tonalRamp": [
+          "oklch(15% 0.090 94.6)",
+          "oklch(25% 0.102 94.6)",
+          "oklch(35% 0.114 94.6)",
+          "oklch(48% 0.130 94.6)",
+          "oklch(60% 0.144 94.6)",
+          "oklch(72% 0.130 94.6)",
+          "oklch(84% 0.115 94.6)",
+          "oklch(95% 0.102 94.6)"
+        ]
+      },
+      "rojo": {
+        "role": "tertiary",
+        "displayName": "Rojo Corazón",
+        "canonical": "#E84040",
+        "oklch": "oklch(62.1% 0.205 25.5)",
+        "tonalRamp": [
+          "oklch(15% 0.125 25.5)",
+          "oklch(25% 0.142 25.5)",
+          "oklch(35% 0.158 25.5)",
+          "oklch(48% 0.180 25.5)",
+          "oklch(60% 0.200 25.5)",
+          "oklch(72% 0.180 25.5)",
+          "oklch(84% 0.160 25.5)",
+          "oklch(95% 0.142 25.5)"
+        ]
+      },
+      "noche": {
+        "role": "neutral",
+        "displayName": "Noche",
+        "canonical": "#161616",
+        "oklch": "oklch(20.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(25% 0.000 89.9)",
+          "oklch(35% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(60% 0.000 89.9)",
+          "oklch(72% 0.000 89.9)",
+          "oklch(84% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "papel": {
+        "role": "neutral",
+        "displayName": "Papel Claro",
+        "canonical": "#F7F5EE",
+        "oklch": "oklch(97.0% 0.010 93.6)",
+        "tonalRamp": [
+          "oklch(15% 0.006 93.6)",
+          "oklch(25% 0.007 93.6)",
+          "oklch(35% 0.008 93.6)",
+          "oklch(48% 0.009 93.6)",
+          "oklch(60% 0.010 93.6)",
+          "oklch(72% 0.009 93.6)",
+          "oklch(84% 0.008 93.6)",
+          "oklch(95% 0.007 93.6)"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "#FFFFFF",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(25% 0.000 89.9)",
+          "oklch(35% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(60% 0.000 89.9)",
+          "oklch(72% 0.000 89.9)",
+          "oklch(84% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "lima-100": {
+        "role": "neutral",
+        "displayName": "Lima Suave",
+        "canonical": "#EEF7E2",
+        "oklch": "oklch(96.4% 0.029 126.0)",
+        "tonalRamp": [
+          "oklch(15% 0.018 126.0)",
+          "oklch(25% 0.021 126.0)",
+          "oklch(35% 0.023 126.0)",
+          "oklch(48% 0.026 126.0)",
+          "oklch(60% 0.029 126.0)",
+          "oklch(72% 0.026 126.0)",
+          "oklch(84% 0.023 126.0)",
+          "oklch(95% 0.021 126.0)"
+        ]
+      },
+      "lima-300": {
+        "role": "neutral",
+        "displayName": "Lima Borde",
+        "canonical": "#CBE9A6",
+        "oklch": "oklch(89.6% 0.094 127.8)",
+        "tonalRamp": [
+          "oklch(15% 0.058 127.8)",
+          "oklch(25% 0.066 127.8)",
+          "oklch(35% 0.074 127.8)",
+          "oklch(48% 0.084 127.8)",
+          "oklch(60% 0.094 127.8)",
+          "oklch(72% 0.084 127.8)",
+          "oklch(84% 0.075 127.8)",
+          "oklch(95% 0.066 127.8)"
+        ]
+      },
+      "gris-600": {
+        "role": "neutral",
+        "displayName": "Gris Lápiz",
+        "canonical": "#4A4A4A",
+        "oklch": "oklch(40.9% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(25% 0.000 89.9)",
+          "oklch(35% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(60% 0.000 89.9)",
+          "oklch(72% 0.000 89.9)",
+          "oklch(84% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "rojo-error": {
+        "role": "tertiary",
+        "displayName": "Rojo Error",
+        "canonical": "#A1221B",
+        "oklch": "oklch(46.4% 0.163 27.6)",
+        "tonalRamp": [
+          "oklch(15% 0.120 27.6)",
+          "oklch(25% 0.120 27.6)",
+          "oklch(35% 0.120 27.6)",
+          "oklch(48% 0.120 27.6)",
+          "oklch(60% 0.120 27.6)",
+          "oklch(72% 0.120 27.6)",
+          "oklch(84% 0.120 27.6)",
+          "oklch(95% 0.120 27.6)"
+        ]
+      },
+      "rosa-error": {
+        "role": "neutral",
+        "displayName": "Rosa Error",
+        "canonical": "#FDECEB",
+        "oklch": "oklch(95.6% 0.018 21.6)",
+        "tonalRamp": [
+          "oklch(15% 0.030 21.6)",
+          "oklch(25% 0.030 21.6)",
+          "oklch(35% 0.030 21.6)",
+          "oklch(48% 0.030 21.6)",
+          "oklch(60% 0.030 21.6)",
+          "oklch(72% 0.030 21.6)",
+          "oklch(84% 0.030 21.6)",
+          "oklch(95% 0.030 21.6)"
+        ]
+      },
+      "salvia": {
+        "role": "neutral",
+        "displayName": "Salvia",
+        "canonical": "#9FB88B",
+        "oklch": "oklch(74.6% 0.068 133.1)",
+        "tonalRamp": [
+          "oklch(15% 0.060 133.1)",
+          "oklch(25% 0.060 133.1)",
+          "oklch(35% 0.060 133.1)",
+          "oklch(48% 0.060 133.1)",
+          "oklch(60% 0.060 133.1)",
+          "oklch(72% 0.060 133.1)",
+          "oklch(84% 0.060 133.1)",
+          "oklch(95% 0.060 133.1)"
+        ]
+      },
+      "gris-500": {
+        "role": "neutral",
+        "displayName": "Gris Pasado",
+        "canonical": "#6B6B6B",
+        "oklch": "oklch(52.6% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0.000 0)",
+          "oklch(25% 0.000 0)",
+          "oklch(35% 0.000 0)",
+          "oklch(48% 0.000 0)",
+          "oklch(60% 0.000 0)",
+          "oklch(72% 0.000 0)",
+          "oklch(84% 0.000 0)",
+          "oklch(95% 0.000 0)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "Título de portada, medido con unidades de contenedor (cqi) para llenar su columna."
+      },
+      "page-title": {
+        "displayName": "Título de página",
+        "purpose": "Cabecera de páginas internas."
+      },
+      "display": {
+        "displayName": "Display Sour Gummy",
+        "purpose": "Títulos de sección: contorno bosque sobre lima/bosque, tinta con resaltado de marcador sobre papel claro."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de tinta dentro de hojas y notas; frase a mano de cada línea."
+      },
+      "subhead": {
+        "displayName": "Subhead",
+        "purpose": "Títulos de hoja lateral y bloque de aliados."
+      },
+      "title": {
+        "displayName": "Título de ficha",
+        "purpose": "Título de ficha de jornada y legend de formulario."
+      },
+      "hand": {
+        "displayName": "Mano Patrick Hand",
+        "purpose": "Pies de polaroid, stickers, enlaces a mano, cierres."
+      },
+      "hand-ui": {
+        "displayName": "Mano UI",
+        "purpose": "Navegación, mensajes vacíos, años de línea de tiempo."
+      },
+      "hand-chip": {
+        "displayName": "Mano chip",
+        "purpose": "Chips de opción y stickers de comisión."
+      },
+      "lead": {
+        "displayName": "Entrada",
+        "purpose": "Párrafo de entrada bajo títulos."
+      },
+      "body": {
+        "displayName": "Cuerpo Poppins",
+        "purpose": "Texto corrido, máximo 65ch."
+      },
+      "small": {
+        "displayName": "Pequeño",
+        "purpose": "Listas en fichas, lugares, pie y fecha de cada momento del carrusel."
+      },
+      "caption": {
+        "displayName": "Pista",
+        "purpose": "Pistas de formulario, descripciones de opción, línea legal."
+      },
+      "label": {
+        "displayName": "Firma Montserrat",
+        "purpose": "Firma BUSCANDO UN CAMBIO y línea de respaldo."
+      }
+    },
+    "shadows": [
+      {
+        "name": "polaroid",
+        "value": "0 2px 4px rgb(0 0 0 / 0.12), 0 8px 20px rgb(0 0 0 / 0.14)",
+        "purpose": "Polaroids y fichas sobre lima."
+      },
+      {
+        "name": "polaroid-band",
+        "value": "0 2px 4px rgb(0 0 0 / 0.1), 0 14px 30px rgb(22 22 22 / 0.16)",
+        "purpose": "Polaroids sobre bandas de papel claro."
+      },
+      {
+        "name": "card",
+        "value": "0 1px 2px rgb(22 22 22 / 0.06), 0 6px 18px rgb(22 22 22 / 0.08)",
+        "purpose": "Preguntas, requisitos, fichas de aliados, sellos de acreditación, baldosas de logo del respaldo."
+      },
+      {
+        "name": "lift",
+        "value": "0 10px 30px rgb(22 22 22 / 0.18)",
+        "purpose": "Hover de polaroid y ficha; panel del menú móvil."
+      },
+      {
+        "name": "sheet",
+        "value": "0 2px 4px rgb(0 0 0 / 0.08), 0 18px 40px rgb(0 0 0 / 0.14)",
+        "purpose": "Hojas de lectura y formulario."
+      },
+      {
+        "name": "sticker",
+        "value": "0 2px 4px rgb(0 0 0 / 0.12), 0 8px 18px rgb(0 0 0 / 0.16)",
+        "purpose": "Stickers."
+      },
+      {
+        "name": "corner",
+        "value": "0 4px 10px rgb(0 0 0 / 0.15)",
+        "purpose": "Etiqueta y estado en las esquinas de la ficha."
+      },
+      {
+        "name": "button",
+        "value": "0 3px 6px rgb(13 58 6 / 0.25), 0 10px 22px rgb(13 58 6 / 0.22)",
+        "purpose": "Sombra teñida de bosque bajo el botón principal."
+      },
+      {
+        "name": "cutout",
+        "value": "drop-shadow(0 8px 12px rgb(0 0 0 / 0.16))",
+        "purpose": "Buki y recortes PNG (filter)."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 4px rgb(132 204 44 / 0.45)",
+        "purpose": "Halo de foco de campos de formulario."
+      },
+      {
+        "name": "topbar",
+        "value": "0 6px 20px rgb(22 22 22 / 0.1)",
+        "purpose": "Barra superior con fondo (hover, foco dentro o tras 24px de scroll), junto a filete rgb(24 92 12 / 0.12) y backdrop-filter: blur(10px) saturate(1.2)."
+      },
+      {
+        "name": "logo-ring",
+        "value": "0 0 0 1px rgb(22 22 22 / 0.08)",
+        "purpose": "Filete de 1px que recorta la baldosa de logo dentro de una ficha blanca (cinta de aliados, sellos de Nosotros)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Curva de todas las transiciones y entradas."
+      },
+      {
+        "name": "dur-fast",
+        "value": "150ms",
+        "purpose": "Hover de botones, flecha, chips y campos."
+      },
+      {
+        "name": "dur-base",
+        "value": "250ms",
+        "purpose": "Preguntas que se enderezan y flecha de acordeón."
+      },
+      {
+        "name": "lift",
+        "value": "450ms ease-out",
+        "purpose": "Polaroid (sube 8px, escala 1.02, conserva 30% del giro) y ficha (se endereza, sube 6px) en hover."
+      },
+      {
+        "name": "settle",
+        "value": "900ms ease-out, desde translateY(-18px) rotate(r - 7deg) scale(1.05), retardo --d",
+        "purpose": "Objetos de la portada al cargar; solo con prefers-reduced-motion: no-preference."
+      },
+      {
+        "name": "paste",
+        "value": "animation-timeline: view(); range entry 5% cover 28%; desde translateY(46px) rotate(r - 5deg) scale(0.96)",
+        "purpose": "Objetos que se pegan al entrar en pantalla; dentro de @supports y no-preference."
+      },
+      {
+        "name": "rise",
+        "value": "animation-timeline: view(); range entry 0% cover 22%; desde translateY(28px)",
+        "purpose": "Texto que sube al entrar en pantalla."
+      },
+      {
+        "name": "wiggle",
+        "value": "500ms ease-out, rotate -4deg / +3deg",
+        "purpose": "Stickers y etiquetas en hover."
+      },
+      {
+        "name": "arrow-nudge",
+        "value": "translateX(4px), 150ms",
+        "purpose": "Flecha del botón en hover."
+      },
+      {
+        "name": "topbar",
+        "value": "300ms ease-out (fondo, sombra, filete, padding 18px→10px)",
+        "purpose": "Barra superior que toma fondo lima al 94% en hover, foco o scroll > 24px."
+      },
+      {
+        "name": "carousel-autoplay",
+        "value": "6000ms por diapositiva; scrollTo smooth",
+        "purpose": "Carrusel de momentos; se pausa en hover, foco dentro, pestaña oculta y con el botón; no arranca con prefers-reduced-motion: reduce."
+      },
+      {
+        "name": "carousel-slide",
+        "value": "600ms ease-out; texto sube 18px con retardos 90/180/260ms; foto activa de scale 1.04 a 1 en 6500ms linear",
+        "purpose": "Diapositiva que pasa a activa; sin zoom ni entrada con prefers-reduced-motion: reduce."
+      },
+      {
+        "name": "marquee",
+        "value": "48s linear infinite, translateX de -50% a 0 (izquierda a derecha)",
+        "purpose": "Cinta de aliados; pausa en hover y foco; con reduce, fila envuelta centrada sin animación ni máscara."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack",
+        "value": "960px"
+      },
+      {
+        "name": "nav",
+        "value": "860px"
+      },
+      {
+        "name": "compact",
+        "value": "600px"
+      }
+    ],
+    "knownInconsistencies": {
+      "fontSizes": [
+        "0.9rem",
+        "0.92rem",
+        "0.98rem",
+        "1.02rem",
+        "1.05rem",
+        "1.1rem",
+        "1.3rem",
+        "1.45rem",
+        "1.6rem",
+        "0.7rem",
+        "clamp(2rem, 1.4rem + 2vw, 3.1rem)",
+        "clamp(2rem, 1.5rem + 1.8vw, 3rem)",
+        "clamp(2.2rem, 1.5rem + 2.4vw, 3.6rem)",
+        "clamp(1.8rem, 1.4rem + 1.4vw, 2.6rem)",
+        "clamp(1.4rem, 1.2rem + 0.8vw, 1.8rem)",
+        "clamp(1.6rem, 1.3rem + 1.2vw, 2.3rem)",
+        "clamp(1.6rem, 1.3rem + 0.9vw, 2.1rem)",
+        "clamp(1.5rem, 1.2rem + 1vw, 2rem)",
+        "clamp(1.7rem, 1.4rem + 1vw, 2.3rem)",
+        "clamp(1.3rem, 1.1rem + 0.7vw, 1.7rem)",
+        "clamp(2.4rem, 1.4rem + 3.6vw, 5rem) (título de momento del carrusel, display con contorno → page-title)",
+        "clamp(1.05rem, 1rem + 0.35vw, 1.3rem) / 1.55 (cuerpo del carrusel → lead)",
+        "0.95rem !important y color amarillo !important (fecha del carrusel; quitar !important)",
+        "1.05rem Montserrat 700 (nombre del aliado junto al logo en la cinta → small o label)"
+      ],
+      "colors": [
+        "#C9DCB6 (borde de tarjeta de opción; converger a salvia o lima-300)",
+        "#fff literal (usar var(--buc-blanco))",
+        "rgb(24 92 12 / 0.12) (filete de la barra superior; bosque al 12% en literal)",
+        "rgb(166 216 108 / 0.94) (fondo de la barra; lima en literal en vez de derivado de --buc-lima)",
+        "rgb(255 255 255 / 0.55|0.9|0.7|0.15) (puntos, flechas, borde y hover de pausa del banner; converger a un rol «blanco sobre foto» con nombre)",
+        "rgb(22 22 22 / 0.82→0.2) (sombra degradada del banner; noche en literal en vez de derivada de --buc-noche)"
+      ],
+      "shadows": [
+        "0 2px 4px rgb(0 0 0 / 0.08), 0 16px 34px rgb(22 22 22 / 0.12) en notas de misión/visión (deriva de sheet)",
+        "0 2px 6px rgb(0 0 0 / 0.25), 0 30px 60px rgb(0 0 0 / 0.4) en el marco del banner de momentos (converger a una variante «polaroid en oscuro» con nombre)",
+        "0 6px 18px rgb(0 0 0 / 0.3) en las flechas del banner (converger a la misma variante en oscuro)",
+        "text-shadow 0 1px 12px rgb(0 0 0 / 0.45) en el cuerpo del banner"
+      ],
+      "breakpoints": [
+        "900px",
+        "800px",
+        "700px (también controles compactos del carrusel)",
+        "560px",
+        "360px"
+      ],
+      "deadTokens": [
+        "--fs-* escala completa",
+        "--fs-eyebrow",
+        "--lh-tight",
+        "--lh-snug",
+        "--radius-xs/sm/md/lg",
+        "--space-*",
+        "--text-outline-*",
+        "--overlay-photo",
+        "--color-* roles"
+      ],
+      "patterns": [
+        "El pie y la banda de valores de Nosotros siguen al lima sin .dark--torn.",
+        ".acred del respaldo de la portada fuerza gap: 12px con !important."
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Llamada a la acción: Postula a BUC, Anótame.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Postula a BUC <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:.55em;min-height:54px;padding:.7em 1.45em;font-family:var(--font-display);font-weight:900;font-size:1.25rem;text-transform:uppercase;letter-spacing:.01em;line-height:1;color:#fff;background:var(--buc-bosque);border:3px solid var(--buc-bosque);border-radius:999px;text-decoration:none;box-shadow:0 3px 6px rgb(13 58 6 / .25),0 10px 22px rgb(13 58 6 / .22);transition:transform 150ms cubic-bezier(.22,1,.36,1),box-shadow 150ms,background-color 150ms}.ds-btn svg{width:1.05em;height:1.05em}.ds-btn:hover{background:var(--buc-bosque-700);transform:translateY(-2px) rotate(-1deg);box-shadow:0 6px 10px rgb(13 58 6 / .25),0 16px 30px rgb(13 58 6 / .25)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid var(--buc-bosque);outline-offset:3px}"
+    },
+    {
+      "name": "Botón claro",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Variante blanca con texto bosque, sobre fondos bosque o fotos.",
+      "html": "<a class=\"ds-btn-light\" href=\"#\">Únete al canal</a>",
+      "css": ".ds-btn-light{display:inline-flex;align-items:center;min-height:54px;padding:.7em 1.45em;font-family:var(--font-display);font-weight:900;font-size:1.25rem;text-transform:uppercase;line-height:1;color:var(--buc-bosque);background:#fff;border:3px solid var(--buc-bosque);border-radius:999px;text-decoration:none;box-shadow:0 3px 6px rgb(13 58 6 / .25),0 10px 22px rgb(13 58 6 / .22);transition:transform 150ms,background-color 150ms}.ds-btn-light:hover{background:var(--buc-lima-100);transform:translateY(-2px) rotate(-1deg)}.ds-btn-light:focus-visible{outline:3px solid var(--buc-bosque);outline-offset:3px}"
+    },
+    {
+      "name": "Enlace a mano",
+      "kind": "custom",
+      "description": "Acción secundaria en letra de mano con subrayado ondulado.",
+      "html": "<a class=\"ds-link-hand\" href=\"#\">ver próximas jornadas</a>",
+      "css": ".ds-link-hand{font-family:var(--font-hand);font-size:1.45rem;line-height:1.2;color:var(--buc-bosque);text-decoration:underline wavy var(--buc-verde);text-decoration-thickness:2px;text-underline-offset:7px}.ds-link-hand:hover{text-decoration-color:var(--buc-bosque)}.ds-link-hand:focus-visible{outline:3px solid var(--buc-bosque);outline-offset:3px;border-radius:6px}"
+    },
+    {
+      "name": "Sticker",
+      "kind": "chip",
+      "refersTo": "sticker",
+      "description": "Etiqueta pegada: línea de voluntariado, burbuja, atajos.",
+      "html": "<span class=\"ds-sticker\">¿qué hacemos?</span> <span class=\"ds-sticker ds-sticker--sol\">¡te esperamos!</span>",
+      "css": ".ds-sticker{display:inline-flex;align-items:center;gap:.4em;font-family:var(--font-hand);font-size:1.5rem;line-height:1.1;color:#fff;background:var(--buc-bosque);padding:.2em .7em .25em;border:4px solid #fff;border-radius:14px;box-shadow:0 2px 4px rgb(0 0 0 / .12),0 8px 18px rgb(0 0 0 / .16);transform:rotate(-4deg);white-space:nowrap}.ds-sticker--sol{background:var(--buc-amarillo);color:var(--buc-noche);transform:rotate(5deg)}"
+    },
+    {
+      "name": "Chip de opción",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Selección múltiple y filtros en formulario y listado de jornadas.",
+      "html": "<label class=\"ds-chip\"><input type=\"checkbox\" checked> <span>Sábados</span></label> <label class=\"ds-chip\"><input type=\"checkbox\"> <span>Domingos</span></label>",
+      "css": ".ds-chip{position:relative;display:inline-block}.ds-chip input{position:absolute;opacity:0;inset:0;cursor:pointer}.ds-chip span{display:inline-flex;align-items:center;min-height:46px;padding:6px 18px;border-radius:999px;border:2.5px solid var(--buc-bosque);font-family:var(--font-hand);font-size:1.35rem;color:var(--buc-bosque);background:#fff;cursor:pointer;transition:background-color 150ms,color 150ms}.ds-chip:hover span{background:var(--buc-lima-100)}.ds-chip input:checked+span{background:var(--buc-bosque);color:#fff}.ds-chip input:focus-visible+span{outline:3px solid var(--buc-bosque);outline-offset:3px}"
+    },
+    {
+      "name": "Campo de texto",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo del formulario de postulación.",
+      "html": "<label class=\"ds-field\"><span>Nombre completo</span><input placeholder=\"Tu nombre\"><small class=\"ds-err\">Escribe tu nombre completo.</small></label>",
+      "css": ".ds-field{display:grid;gap:6px;font-family:var(--font-body)}.ds-field span{font-weight:600;font-size:1rem;color:var(--buc-noche)}.ds-field input{min-height:50px;padding:12px 14px;border-radius:10px;border:2px solid #9fb88b;background:#fff;font:inherit;font-size:1rem;color:var(--buc-noche);transition:border-color 150ms,box-shadow 150ms}.ds-field input:hover{border-color:var(--buc-bosque)}.ds-field input:focus-visible{outline:none;border-color:var(--buc-bosque);box-shadow:0 0 0 4px rgb(132 204 44 / .45)}.ds-field input::placeholder{color:#6b6b6b}.ds-err{font-size:.875rem;font-weight:600;color:#a1221b}"
+    },
+    {
+      "name": "Barra superior",
+      "kind": "nav",
+      "description": "Barra fija a todo el ancho: transparente arriba, papel lima al 94% con desenfoque, filete y sombra en hover, foco o tras 24px de scroll.",
+      "html": "<header class=\"ds-topbar is-scrolled\"><div class=\"ds-nav\"><span class=\"ds-nav__brand\">Buscando un Cambio</span><nav><a href=\"#\" aria-current=\"page\">Voluntariados</a><a href=\"#\">Nosotros</a><a href=\"#\">Preguntas</a></nav><a class=\"ds-nav__go\" href=\"#\">Postula</a></div></header>",
+      "css": ".ds-topbar{background:transparent;border-bottom:1px solid transparent;transition:background-color 300ms cubic-bezier(.22,1,.36,1),box-shadow 300ms,border-color 300ms}.ds-topbar:hover,.ds-topbar.is-scrolled{background:rgb(166 216 108 / .94);-webkit-backdrop-filter:blur(10px) saturate(1.2);backdrop-filter:blur(10px) saturate(1.2);border-bottom-color:rgb(24 92 12 / .12);box-shadow:0 6px 20px rgb(22 22 22 / .1)}.ds-nav{display:flex;align-items:center;gap:14px;padding:18px 20px;transition:padding 300ms}.ds-topbar.is-scrolled .ds-nav{padding-block:10px}.ds-nav__brand{font-family:var(--font-brand);font-weight:700;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--buc-bosque)}.ds-nav nav{margin-left:auto;display:flex;gap:24px}.ds-nav nav a{font-family:var(--font-hand);font-size:1.5rem;color:var(--buc-bosque);text-decoration:none}.ds-nav nav a:hover,.ds-nav nav a[aria-current=page]{text-decoration:underline wavy var(--buc-bosque);text-underline-offset:6px;text-decoration-thickness:2px}.ds-nav__go{display:inline-flex;align-items:center;min-height:44px;padding:.55em 1.1em;font-family:var(--font-display);font-weight:900;text-transform:uppercase;color:#fff;background:var(--buc-bosque);border-radius:999px;text-decoration:none}.ds-nav__go:hover{background:var(--buc-bosque-700)}"
+    },
+    {
+      "name": "Polaroid",
+      "kind": "custom",
+      "refersTo": "polaroid",
+      "description": "Marco blanco para toda foto real, con cinta y pie a mano.",
+      "html": "<figure class=\"ds-polaroid\"><span class=\"ds-tape\"></span><div class=\"ds-photo\"></div><figcaption>todos tenemos un corazón verde</figcaption></figure>",
+      "css": ".ds-polaroid{position:relative;width:240px;margin:20px;background:#fff;padding:14px 14px 16px;box-shadow:0 2px 4px rgb(0 0 0 / .12),0 8px 20px rgb(0 0 0 / .14);transform:rotate(-3deg);transition:transform 450ms cubic-bezier(.22,1,.36,1),box-shadow 450ms}.ds-polaroid:hover{transform:rotate(-.9deg) translateY(-8px) scale(1.02);box-shadow:0 10px 30px rgb(22 22 22 / .18)}.ds-photo{aspect-ratio:1;background:var(--buc-lima-300)}.ds-tape{position:absolute;top:-14px;left:31%;width:38%;height:24px;background:rgb(240 236 200 / .8);transform:rotate(-4deg)}.ds-polaroid figcaption{margin-top:10px;font-family:var(--font-hand);font-size:1.3rem;line-height:1.15;color:var(--buc-noche)}"
+    },
+    {
+      "name": "Ficha de jornada",
+      "kind": "card",
+      "refersTo": "ticket",
+      "description": "Próxima jornada: etiqueta de línea, título, fecha amarilla y estado de cupos.",
+      "html": "<article class=\"ds-ticket\"><span class=\"ds-tag\">próxima jornada</span><span class=\"ds-estado\">últimos cupos</span><p class=\"ds-ticket__t\">Albergue <em>Villa Panamericana</em></p><p class=\"ds-ticket__d\">DOM 18 OCT · 8:15 · Villa El Salvador</p></article>",
+      "css": ".ds-ticket{position:relative;max-width:340px;margin:24px;background:#fff;border-radius:8px;color:var(--buc-noche);padding:26px 20px 20px;box-shadow:0 2px 4px rgb(0 0 0 / .12),0 8px 20px rgb(0 0 0 / .14);transform:rotate(-2deg)}.ds-tag{position:absolute;top:-15px;left:-10px;transform:rotate(-4deg);font-family:var(--font-hand);font-size:1.15rem;line-height:1;color:#fff;background:var(--buc-bosque);padding:5px 11px 6px;border:3px solid #fff;border-radius:10px;box-shadow:0 4px 10px rgb(0 0 0 / .15)}.ds-estado{position:absolute;top:-14px;right:-10px;transform:rotate(5deg);font-family:var(--font-display);font-weight:900;font-size:.85rem;letter-spacing:.03em;text-transform:uppercase;padding:6px 11px;border-radius:999px;border:3px solid #fff;background:var(--buc-rojo);color:#fff;box-shadow:0 4px 10px rgb(0 0 0 / .15)}.ds-ticket__t{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:clamp(1.45rem,1.2rem + .9vw,1.9rem);line-height:.98;margin:4px 0 12px}.ds-ticket__t em{font-style:normal;color:var(--buc-bosque)}.ds-ticket__d{display:inline-block;background:var(--buc-amarillo);color:var(--buc-noche);border-radius:4px;font-family:var(--font-display);font-weight:900;font-size:1rem;letter-spacing:.02em;text-transform:uppercase;padding:6px 10px;margin:0}.ds-ticket{transition:transform 450ms cubic-bezier(.22,1,.36,1),box-shadow 450ms}.ds-ticket:hover{transform:rotate(0) translateY(-6px);box-shadow:0 10px 30px rgb(22 22 22 / .18)}"
+    },
+    {
+      "name": "Título display",
+      "kind": "custom",
+      "description": "Título con contorno sobre lima y variante de tinta con resaltado de marcador sobre banda clara.",
+      "html": "<div class=\"ds-lima\"><h2 class=\"ds-display\">Próximas <em>jornadas</em></h2></div><div class=\"ds-hoja\"><h2 class=\"ds-display ds-display--ink\">Antes de <em>postular</em></h2></div>",
+      "css": ".ds-lima{background:var(--buc-lima);padding:20px}.ds-hoja{background:var(--buc-papel);padding:20px}.ds-display{--o:3px;margin:0;font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:.95;font-size:3rem;color:#fff;text-shadow:calc(var(--o)*-1) calc(var(--o)*-1) 0 var(--buc-bosque),var(--o) calc(var(--o)*-1) 0 var(--buc-bosque),calc(var(--o)*-1) var(--o) 0 var(--buc-bosque),var(--o) var(--o) 0 var(--buc-bosque),0 calc(var(--o)*-1.2) 0 var(--buc-bosque),0 calc(var(--o)*1.6) 0 var(--buc-bosque),calc(var(--o)*-1.2) 0 0 var(--buc-bosque),calc(var(--o)*1.2) 0 0 var(--buc-bosque)}.ds-display em{font-style:normal;color:var(--buc-verde-logo)}.ds-display--ink{color:var(--buc-bosque);text-shadow:none;line-height:1.04}.ds-display--ink em{color:var(--buc-bosque);background:linear-gradient(transparent 14%,var(--buc-verde) 14%,var(--buc-verde) 94%,transparent 94%);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}"
+    },
+    {
+      "name": "Banda clara",
+      "kind": "card",
+      "refersTo": "band",
+      "description": "Sección de papel claro a todo el ancho con bordes rasgados arriba y abajo.",
+      "html": "<div class=\"ds-lima-a\"></div><section class=\"ds-band\"><p>Tres formas de sumarte</p></section><div class=\"ds-lima-a\"></div>",
+      "css": ".ds-lima-a{height:40px;background:var(--buc-lima)}.ds-band{position:relative;background:var(--buc-papel);color:var(--buc-noche);padding:48px 24px;font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:2rem;color:var(--buc-bosque)}.ds-band p{margin:0}.ds-band::before,.ds-band::after{content:'';position:absolute;left:0;right:0;height:12px;background:var(--buc-papel);clip-path:polygon(0 100%,4% 30%,9% 80%,15% 20%,22% 70%,30% 10%,38% 60%,46% 25%,55% 75%,63% 15%,72% 65%,80% 20%,88% 70%,95% 30%,100% 100%)}.ds-band::before{top:-11px}.ds-band::after{bottom:-11px;transform:scaleY(-1)}"
+    },
+    {
+      "name": "Sello de acreditación",
+      "kind": "card",
+      "refersTo": "option-card",
+      "description": "Tarjeta blanca con borde bosque discontinuo, como un timbre, con la baldosa de logo de la entidad a 72px.",
+      "html": "<div class=\"ds-acred\"><span class=\"ds-acred__logo\">SENAJU</span><span>Inscritos en la <strong>Secretaría Nacional de la Juventud (SENAJU)</strong> desde febrero de 2022</span></div>",
+      "css": ".ds-acred{display:flex;gap:14px;align-items:center;max-width:420px;margin:16px;padding:20px 22px;background:#fff;border:2.5px dashed var(--buc-bosque);border-radius:12px;color:var(--buc-noche);font-family:var(--font-body);font-size:.95rem;transform:rotate(-1.2deg);box-shadow:0 1px 2px rgb(22 22 22 / .06),0 6px 18px rgb(22 22 22 / .08)}.ds-acred__logo{flex:none;width:72px;height:72px;border-radius:12px;background:#fff;box-shadow:0 0 0 1px rgb(22 22 22 / .08);display:grid;place-items:center;font-family:var(--font-brand);font-weight:700;font-size:.7rem;color:var(--buc-bosque)}.ds-acred strong{color:var(--buc-bosque)}"
+    },
+    {
+      "name": "Carrusel de momentos",
+      "kind": "custom",
+      "description": "Banner a todo el ancho: la foto desenfocada (38px) como fondo bajo una sombra noche, la foto completa en marco blanco girado 2° a la derecha, texto a la izquierda (sticker, display con contorno, cuerpo blanco, fecha amarilla) y fila de controles al pie (puntos, pausa, flechas).",
+      "html": "<div class=\"ds-ban\"><div class=\"ds-ban__bg\"></div><div class=\"ds-ban__shade\"></div><figure class=\"ds-ban__foto\"><div class=\"ds-ban__img\"></div></figure><div class=\"ds-ban__txt\"><span class=\"ds-stk\">Animalista</span><h3 class=\"ds-ban__t\">Patitas felices</h3><p>Limpiamos, jugamos y llenamos de cariño a los perritos del albergue.</p><p class=\"ds-when\">Julio 2025</p></div><div class=\"ds-ban__nav\"><span class=\"ds-dot is-on\"></span><span class=\"ds-dot\"></span><span class=\"ds-dot\"></span><button class=\"ds-play\" aria-label=\"Pausar\">II</button><span class=\"ds-arrows\"><button class=\"ds-cbtn\" aria-label=\"Anterior\">&larr;</button><button class=\"ds-cbtn\" aria-label=\"Siguiente\">&rarr;</button></span></div></div>",
+      "css": ".ds-ban{position:relative;overflow:hidden;height:420px;background:var(--buc-noche);color:#fff;display:grid;align-items:center}.ds-ban__bg{position:absolute;inset:-60px;background:linear-gradient(120deg,#6a8f3a,#c9a35a 50%,#3d6b52);filter:blur(38px) saturate(1.25) brightness(.8)}.ds-ban__shade{position:absolute;inset:0;background:linear-gradient(90deg,rgb(22 22 22 / .82) 0%,rgb(22 22 22 / .55) 45%,rgb(22 22 22 / .2) 100%)}.ds-ban__foto{position:absolute;z-index:1;right:24px;top:50%;translate:0 -58%;margin:0;height:70%;aspect-ratio:4/3;background:#fff;padding:12px;rotate:2deg;box-shadow:0 2px 6px rgb(0 0 0 / .25),0 30px 60px rgb(0 0 0 / .4)}.ds-ban__img{height:100%;background:linear-gradient(135deg,#8fae5c,#d8b46a)}.ds-ban__txt{position:relative;z-index:2;display:grid;gap:12px;justify-items:start;padding:0 0 56px 24px;max-width:44%}.ds-stk{font-family:var(--font-hand);font-size:1.2rem;color:#fff;background:var(--buc-bosque);border:4px solid #fff;border-radius:14px;padding:.2em .7em}.ds-ban__t{--o:2.5px;margin:0;font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:.95;font-size:2.6rem;color:#fff;text-shadow:calc(var(--o)*-1) calc(var(--o)*-1) 0 var(--buc-bosque),var(--o) calc(var(--o)*-1) 0 var(--buc-bosque),calc(var(--o)*-1) var(--o) 0 var(--buc-bosque),var(--o) var(--o) 0 var(--buc-bosque)}.ds-ban__txt p{margin:0;font-family:var(--font-body);font-size:1.05rem;line-height:1.55;text-shadow:0 1px 12px rgb(0 0 0 / .45)}.ds-ban__txt .ds-when{font-family:var(--font-brand);font-weight:600;font-size:.95rem;color:var(--buc-amarillo)}.ds-ban__nav{position:absolute;z-index:2;left:24px;right:24px;bottom:20px;display:flex;align-items:center;gap:14px}.ds-dot{width:10px;height:10px;border-radius:999px;background:rgb(255 255 255 / .55)}.ds-dot.is-on{transform:scaleX(2.6);background:var(--buc-amarillo);margin-inline:8px}.ds-play{width:40px;height:40px;border-radius:50%;background:transparent;color:#fff;border:2px solid rgb(255 255 255 / .7);font-weight:700;cursor:pointer}.ds-arrows{margin-left:auto;display:flex;gap:12px}.ds-cbtn{width:58px;height:58px;border-radius:50%;border:0;background:rgb(255 255 255 / .9);color:var(--buc-bosque);font-size:1.4rem;box-shadow:0 6px 18px rgb(0 0 0 / .3);cursor:pointer;transition:transform 150ms,background-color 150ms}.ds-cbtn:hover{transform:scale(1.06);background:var(--buc-amarillo)}"
+    },
+    {
+      "name": "Cinta de aliados",
+      "kind": "custom",
+      "description": "Fila única de fichas blancas de 14px con la baldosa del logo de perfil (64px, 12px) y el nombre; desliza de izquierda a derecha (48s) con bordes desvanecidos y pausa en hover. Único tratamiento de aliado (portada y Nosotros).",
+      "html": "<div class=\"ds-mq\"><ul><li><span class=\"ds-mq__logo\"></span>Escuadrón 4 Patas</li><li><span class=\"ds-mq__logo\"></span>Liga Contra el Cáncer</li><li><span class=\"ds-mq__logo\"></span>Teletón</li><li><span class=\"ds-mq__logo\"></span>Somos Amalia</li><li><span class=\"ds-mq__logo\"></span>Escuadrón 4 Patas</li><li><span class=\"ds-mq__logo\"></span>Liga Contra el Cáncer</li><li><span class=\"ds-mq__logo\"></span>Teletón</li><li><span class=\"ds-mq__logo\"></span>Somos Amalia</li></ul></div>",
+      "css": ".ds-mq{overflow:hidden;padding-block:18px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}.ds-mq ul{list-style:none;margin:0;padding:0;display:flex;gap:20px;width:max-content;animation:ds-mq 24s linear infinite}.ds-mq:hover ul{animation-play-state:paused}.ds-mq li{display:flex;align-items:center;gap:14px;min-height:88px;padding:12px 24px 12px 12px;background:#fff;border-radius:14px;box-shadow:0 1px 2px rgb(22 22 22 / .06),0 6px 18px rgb(22 22 22 / .08);font-family:var(--font-brand);font-weight:700;font-size:1.05rem;color:var(--buc-bosque);white-space:nowrap}.ds-mq__logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--buc-lima-300),var(--buc-verde));box-shadow:0 0 0 1px rgb(22 22 22 / .08)}@keyframes ds-mq{from{transform:translateX(calc(-50% - 10px))}to{transform:none}}@media (prefers-reduced-motion:reduce){.ds-mq{-webkit-mask:none;mask:none}.ds-mq ul{animation:none;flex-wrap:wrap;width:auto;justify-content:center}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El álbum de los buccitos",
+    "overview": "La web es un álbum de recortes pegado sobre papel lima arrugado: polaroids blancas con fotos reales de jornadas, sostenidas con cinta o clip, stickers verde bosque con borde blanco, fichas blancas de jornada con su fecha en amarillo, notas en letra de mano y garabatos verdes y amarillos. Todo está un poco girado, como si alguien lo hubiera pegado a mano un sábado después de la jornada. La foto real es la prueba; el papel es el escenario.\n\nLa página alterna tres papeles a todo el ancho: el papel lima de fondo, bandas de papel claro con bordes rasgados arriba y abajo, y bandas oscuras verde bosque que, cuando siguen al lima, entran también con un borde rasgado (en bosque). La portada corre lima (hero) → banner de momentos a todo el ancho (la foto de cada jornada desenfocada como fondo, con la misma foto completa en marco blanco encima; el lima le cae encima con un borde rasgado) → banda clara (líneas) → lima (jornadas) → banda bosque (Ser buccito) → banda clara (requisitos) → lima (aliados en cinta) → pie bosque. Sobre todo ello flota una barra superior fija, transparente arriba y de papel lima translúcido al bajar. Las columnas son anchas (contenedor de 1760px) y la densidad es de álbum, no de tablero: pocos objetos grandes que se superponen y secciones de lectura con aire. Los títulos gritan en Sour Gummy en mayúsculas; la voz cercana vive en Patrick Hand (pies de foto, navegación, stickers); el cuerpo informa en Poppins. Se rechaza explícitamente la plantilla de ONG con foto a sangre y tarjetas de ícono: el único fondo fotográfico es el desenfoque del banner de momentos, que es atmósfera y no imagen; la foto que se lee sigue enmarcada.\n\nEl movimiento es el gesto de pegar: los objetos de la portada se asientan al cargar, los demás se pegan girando al entrar en pantalla y el texto sube; todo condicionado a movimiento no reducido y visible por defecto. Dos piezas se mueven solas, ambas con pausa: el carrusel de momentos (avanza cada 6s) y la cinta de aliados (desliza de izquierda a derecha); con movimiento reducido el carrusel no avanza y la cinta queda quieta y centrada.",
+    "keyCharacteristics": [
+      "Fondo de papel lima con textura rasterizada (papel-lima.webp, 720px en mosaico) en todo el sitio, interrumpido por bandas claras con borde rasgado y bandas bosque (con borde rasgado bosque cuando siguen al lima).",
+      "Objetos físicos con rotación leve (−6° a +6°, por la propiedad `--r`) y sombras suaves de elevación; nada plano, nada con sombra dura desplazada.",
+      "Tres voces tipográficas con roles fijos (display, mano, cuerpo), más Montserrat para la firma, la línea de respaldo y el nombre de cada aliado.",
+      "Fotos reales siempre dentro de un marco blanco (polaroid o marco del banner), nunca a sangre ni recortadas para llenar; si hay que llenar un ancho, se llena con la misma foto desenfocada detrás.",
+      "Logos de terceros (aliados, acreditaciones) siempre en una baldosa blanca cuadrada de 12px, nunca sueltos sobre el papel.",
+      "Accesorios físicos (cinta, clip, papel, borde rasgado) son imágenes raster, no CSS dibujado.",
+      "Movimiento de pegado: asentarse, pegarse, subir, menear; nunca bloquea contenido."
+    ],
+    "rules": [
+      {
+        "name": "The Tinta Bosque Rule",
+        "body": "Sobre lima, papel o blanco, el texto es bosque o noche. Verde, verde sello y amarillo nunca son texto sobre claro; viven como superficie, resaltado o garabato."
+      },
+      {
+        "name": "The Marcador Rule",
+        "body": "El amarillo marca tiempo (fecha y hora de jornada o de un momento), énfasis sobre bosque o el estado activo de un control sobre oscuro (punto del carrusel, hover de flecha). No se usa como fondo de sección."
+      },
+      {
+        "name": "The Tres Papeles Rule",
+        "body": "Las secciones a todo el ancho solo pueden ser lima (con textura), papel claro (banda con borde rasgado) o bosque (banda oscura). Ningún otro color pinta una sección. La barra superior, cuando toma fondo, es el mismo papel lima translúcido, no un cuarto color. La única excepción es el banner de momentos: su superficie es la propia foto desenfocada sobre noche, existe una sola vez (justo bajo el hero) y no se replica como fondo de otras secciones."
+      },
+      {
+        "name": "The Un Solo Rojo de Error Rule",
+        "body": "La validación usa rojo-error sobre blanco o rosa-error; rojo corazón no marca errores y rojo-error no decora."
+      },
+      {
+        "name": "The Tres Voces Rule",
+        "body": "Display grita, la mano conversa, Poppins informa. La letra de mano nunca lleva párrafos largos; Poppins nunca hace de titular."
+      },
+      {
+        "name": "The Contorno o Tinta Rule",
+        "body": "El título blanco con contorno bosque es para lima, bosque y el banner de momentos; sobre papel claro el título pasa a tinta bosque sólida con la palabra clave sobre un resaltado de marcador verde que ocupa solo el cuerpo de la letra (14%–94% de la línea, interlineado 1.04), para que nunca tape la línea de arriba. No se usa el contorno sobre papel claro."
+      },
+      {
+        "name": "The Papel Sobre Papel Rule",
+        "body": "Toda sombra es difusa, con desenfoque y opacidad baja. Ninguna sombra dura desplazada sin desenfoque."
+      },
+      {
+        "name": "The Pegado Rule",
+        "body": "El movimiento imita pegar: la portada se asienta al cargar (900ms, cae 18px desde un giro extra de −7° y escala 1.05, con retardo por objeto); los objetos se pegan al entrar en pantalla (suben 46px desde −5° y escala 0.96, ligado a `view()`, de entry 5% a cover 28%); el texto sube 28px (entry 0% a cover 22%). Todo vive dentro de `prefers-reduced-motion: no-preference`; el pegado por scroll además dentro de `@supports (animation-timeline: view())`. Sin soporte, todo se ve quieto y completo."
+      },
+      {
+        "name": "The Con Pausa Rule",
+        "body": "Lo que se mueve solo se puede detener: el carrusel avanza cada 6s (y su foto activa se aleja lentamente de escala 1.04 a 1 en 6.5s lineal; el texto entra subiendo 18px en 600ms escalonado) pero se pausa al pasar el cursor, al enfocar algo dentro, con la pestaña oculta y con su botón de pausa; la cinta de aliados (48s lineal, de izquierda a derecha) se detiene en hover y foco. Con `prefers-reduced-motion: reduce` el carrusel arranca pausado, sin desplazamiento suave ni zoom, y la cinta se convierte en una fila envuelta, centrada y sin duplicados."
+      }
+    ],
+    "dos": [
+      "Do poner toda foto real dentro de una polaroid blanca con cinta o clip, con su pie escrito a mano (o, en el banner de momentos, completa en su marco blanco con su texto al lado).",
+      "Do llenar un ancho mayor que la foto con la misma foto desenfocada detrás, nunca recortándola ni ampliándola.",
+      "Do mostrar logos de aliados y entidades como baldosa blanca cuadrada de 12px (56px en el respaldo, 64px en la cinta, 72px en los sellos), a color.",
+      "Do dar a todo lo que se mueve solo un control de pausa y un estado quieto bajo movimiento reducido.",
+      "Do girar los objetos pegados entre −6° y +6° con `--r` y dejar rectos formularios y párrafos.",
+      "Do alternar las secciones entre lima, banda clara con borde rasgado y banda bosque, y poner el borde rasgado bosque (`.dark--torn`) a toda banda bosque que siga al lima.",
+      "Do usar el título blanco con contorno bosque sobre lima y bosque, y la variante de tinta con resaltado de marcador sobre papel claro.",
+      "Do marcar fecha y hora de jornada sobre la franja amarilla y el estado de cupos como píldora con borde blanco en la esquina.",
+      "Do usar los archivos raster de cinta, clip, papel y borde rasgado en vez de imitarlos con CSS.",
+      "Do mantener sombras difusas en dos capas y todo movimiento condicionado a movimiento no reducido, con el contenido visible por defecto.",
+      "Do elegir tamaños de la escala de Typography; si un valor no está ahí, es deriva."
+    ],
+    "donts": [
+      "Don't usar fotos nítidas a sangre con overlay oscuro ni grillas de tarjetas con ícono al estilo ONG genérica; el fondo desenfocado es exclusivo del banner de momentos.",
+      "Don't volver a las tiras de texto de 3px para aliados ni mostrar un aliado de dos formas distintas.",
+      "Don't poner texto verde, verde sello o amarillo sobre lima, papel o blanco.",
+      "Don't poner etiquetas pequeñas en mayúsculas sobre los títulos; la etiqueta de jornada va como sticker en la esquina de la ficha.",
+      "Don't usar sombras duras desplazadas sin desenfoque.",
+      "Don't escribir párrafos largos en Patrick Hand ni titulares en Poppins.",
+      "Don't usar rojo corazón para errores ni rojo-error como decoración.",
+      "Don't pintar secciones con un color distinto de lima, papel claro o bosque."
+    ]
+  }
+}

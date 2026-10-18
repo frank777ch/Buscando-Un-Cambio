@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo_buc_blanco.svg';
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+import { url } from '../lib/url';
+
+const redes = [
+  { href: site.redes.instagram, label: 'Instagram', icon: 'instagram' },
+  { href: site.redes.facebook, label: 'Facebook', icon: 'facebook' },
+  { href: site.redes.tiktok, label: 'TikTok', icon: 'tiktok' },
+  { href: site.redes.linkedin, label: 'LinkedIn', icon: 'linkedin' },
+].filter((r) => r.href) as { href: string; label: string; icon: 'instagram' | 'facebook' | 'tiktok' | 'linkedin' }[];
+---
+<footer class="foot dark on-dark">
+  <div class="wrap grid">
+    <div class="who">
+      <Image src={logo} alt="" width={84} height={84} />
+      <p class="lema hand">{site.lema.toLowerCase()}</p>
+      <p class="small">Voluntariado juvenil animalista, ambiental y social en {site.contacto.ciudad}. Acreditados por {site.acreditaciones.join(' y la ')}.</p>
+    </div>
+    <nav aria-label="Pie de página" class="col">
+      <h2>Explora</h2>
+      <ul>
+        <li><a href={url('/voluntariados')}>Voluntariados</a></li>
+        <li><a href={url('/voluntariados#jornadas')}>Próximas jornadas</a></li>
+        <li><a href={url('/nosotros')}>Nosotros</a></li>
+        <li><a href={url('/preguntas')}>Preguntas frecuentes</a></li>
+        <li><a href={url('/postula')}>Postula</a></li>
+      </ul>
+    </nav>
+    <div class="col">
+      <h2>Escríbenos</h2>
+      <ul>
+        <li><a href={`https://wa.me/${site.contacto.whatsapp}`}><Icon name="whatsapp" /> {site.contacto.telefonoVisible}</a></li>
+        <li><a href={`mailto:${site.contacto.email}`}><Icon name="mail" /> {site.contacto.email}</a></li>
+        <li><a href={site.redes.canalWhatsapp}><Icon name="whatsapp" /> Canal de difusión</a></li>
+      </ul>
+      <ul class="redes" aria-label="Redes sociales">
+        {redes.map((r) => <li><a href={r.href} aria-label={r.label}><Icon name={r.icon} /></a></li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <span>© {new Date().getFullYear()} Buscando un Cambio (BUC)</span>
+    <a href={url('/privacidad')}>Privacidad y datos personales</a>
+  </div>
+</footer>
+
+<style>
+  .foot { padding: clamp(56px, 7vw, 88px) 0 28px; margin-top: 0; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(28px, 4vw, 56px); }
+  .who img { width: 84px; height: 84px; }
+  .lema { font-size: clamp(1.7rem, 1.4rem + 1vw, 2.3rem); color: var(--buc-lima); margin: 14px 0 8px; line-height: 1.1; }
+  .small { font-size: 0.95rem; color: var(--buc-lima-100); max-width: 38ch; }
+  h2 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.15rem; letter-spacing: 0.03em; color: var(--buc-amarillo); margin-bottom: 12px; }
+  ul { list-style: none; padding: 0; }
+  li + li { margin-top: 8px; }
+  .col a { color: var(--buc-blanco); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+  .col a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .col a :global(svg) { width: 20px; height: 20px; flex: none; }
+  .redes { display: flex; gap: 10px; margin-top: 18px; }
+  .redes li + li { margin-top: 0; }
+  .redes a { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--buc-lima); justify-content: center; }
+  .redes a:hover { background: var(--buc-lima); color: var(--buc-bosque); text-decoration: none; }
+  .legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 48px; padding-top: 18px; border-top: 1px solid rgb(255 255 255 / 0.2); font-size: 0.875rem; color: var(--buc-lima-100); }
+  .legal a { color: var(--buc-lima-100); }
+  .col a { min-width: 0; overflow-wrap: anywhere; }
+  @media (max-width: 800px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+</style>

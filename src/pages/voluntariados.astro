@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Polaroid from '../components/Polaroid.astro';
+import JornadaCard from '../components/JornadaCard.astro';
+import Icon from '../components/Icon.astro';
+import { site, lineas } from '../data/site';
+import { proximas, foto, hayEjemplos } from '../lib/jornadas';
+import { url } from '../lib/url';
+
+const lista = proximas();
+const iconos = { animalista: 'paw', ambiental: 'wave', social: 'hands' } as const;
+const portada = { animalista: 'animalista-abrazo', ambiental: 'ambiental-bolsas', social: 'social-olla' } as const;
+const filtros = [{ id: 'todas', nombre: 'Todas' }, ...lineas.map((l) => ({ id: l.id, nombre: l.nombre }))];
+---
+<Base title="Voluntariados y jornadas" description="Voluntariado animalista, ambiental y social en Lima. Mira las próximas jornadas de Buscando un Cambio y anótate.">
+  <PageHead title="Voluntariados" accent="y jornadas" lead="Tres causas, una misma comunidad. Cada fin de semana salimos a albergues, playas, ríos y comunidades de Lima.">
+    <Polaroid src={foto('equipo-grupo')} alt="Grupo de voluntarios de BUC con polos lima posando juntos" caption="así se ve un domingo BUC" rotate={4} width={420} settle={0} eager />
+  </PageHead>
+
+  <section class="wrap causas" aria-label="Líneas de voluntariado">
+    {lineas.map((l, i) => (
+      <article class="causa sheet rise" id={l.id} style={`--r: ${[-0.8, 0.6, -0.4][i]}deg`}>
+        <Polaroid class="causa__foto" src={foto(portada[l.id])} alt={`Jornada ${l.nombre.toLowerCase()} de BUC`} ratio={1} rotate={[-4, 3, -2][i]} width={300} holder={i === 1 ? 'clip' : 'tape'} lift />
+        <span class:list={['sticker', 'causa__tag', i === 1 && 'sticker--lima', i === 2 && 'sticker--sol']}><Icon name={iconos[l.id]} /> {l.nombre}</span>
+        <h2 class="hand causa__resumen">{l.resumen}</h2>
+        <ul class="checks">
+          {l.actividades.map((a) => <li><Icon name="check" /> {a}</li>)}
+        </ul>
+        <p class="lugares"><Icon name="pin" /> {l.lugares}</p>
+      </article>
+    ))}
+  </section>
+
+  <section id="jornadas" class="band section jornadas" aria-labelledby="jor-title">
+    <div class="wrap">
+      <div class="jor__head">
+        <h2 id="jor-title" class="display display--ink section-title">Próximas <em>jornadas</em></h2>
+        <div class="filtros" role="group" aria-label="Filtrar por línea" data-filtros>
+          {filtros.map((f, i) => <button type="button" class="filtro" aria-pressed={i === 0 ? 'true' : 'false'} data-filtro={f.id}>{f.nombre}</button>)}
+        </div>
+      </div>
+      <p class="lead jor__lead">Las jornadas abiertas reciben también a quienes todavía no son voluntarios oficiales. Para anotarte escríbenos por WhatsApp o usa el formulario de cada jornada.</p>
+      <ul class="jor__grid" data-jornadas>
+        {lista.map((j, i) => (
+          <li data-jornada-item data-linea={j.linea}><JornadaCard j={j} rotate={[-1, 0.8, -0.4, 1.2][i % 4]} full paste /></li>
+        ))}
+      </ul>
+      <p class="vacio hand" data-jornadas-vacio hidden={lista.length > 0}>No hay jornadas publicadas por ahora. Síguenos en el <a href={site.redes.canalWhatsapp}>canal de WhatsApp</a> para enterarte primero.</p>
+      {/* Jornadas de demostración: se reemplazan en src/data/jornadas.json */}
+      {hayEjemplos && <p class="nota">Estas fechas son de ejemplo. Las próximas jornadas se anuncian en el <a href={site.redes.canalWhatsapp}>canal de WhatsApp</a>.</p>}
+      <div class="canal sheet">
+        <Icon name="whatsapp" class="canal__icon" />
+        <p><strong>¿No ves una fecha que te acomode?</strong> En el canal de difusión de WhatsApp publicamos cada jornada apenas se abre.</p>
+        <a class="btn btn--small" href={site.redes.canalWhatsapp}>Seguir el canal <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cierre" aria-labelledby="cierre-title">
+    <div class="wrap cierre__in">
+      <h2 id="cierre-title" class="display section-title">¿Quieres ser <em>buccito oficial?</em></h2>
+      <p class="lead">Postula a la convocatoria: participas en todas las líneas, recibes capacitaciones y certificados, y te sumas a la comunidad.</p>
+      <a class="btn" href={url('/postula')}>Postula a BUC <Icon name="arrow" /></a>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import '../scripts/jornadas';
+  const grupo = document.querySelector<HTMLElement>('[data-filtros]');
+  const items = document.querySelectorAll<HTMLElement>('[data-linea]');
+  grupo?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-filtro]');
+    if (!btn) return;
+    grupo.querySelectorAll('[data-filtro]').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    const f = btn.dataset.filtro;
+    const hoy = new Date(Date.now() - 5 * 3600 * 1000).toISOString().slice(0, 10);
+    let visibles = 0;
+    items.forEach((li) => {
+      const fecha = li.querySelector<HTMLElement>('[data-fecha]')?.dataset.fecha ?? '';
+      const mostrar = (f === 'todas' || li.dataset.linea === f) && fecha >= hoy;
+      li.hidden = !mostrar;
+      if (mostrar) visibles++;
+    });
+    const vacio = document.querySelector<HTMLElement>('[data-jornadas-vacio]');
+    if (vacio) vacio.hidden = visibles > 0;
+  });
+</script>
+
+<style>
+  .causas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 3vw, 40px); padding-bottom: clamp(48px, 6vw, 80px); }
+  .causa { position: relative; transform: rotate(var(--r)); padding: clamp(24px, 3vw, 34px); padding-top: clamp(150px, 15vw, 190px); margin-top: 90px; }
+  .causa :global(.causa__foto) { position: absolute; top: -90px; right: 18px; width: 58%; }
+  .causa__tag { position: absolute; z-index: 3; top: -104px; left: 14px; transform: rotate(-6deg); }
+  .causa__resumen { font-size: clamp(1.6rem, 1.3rem + 0.9vw, 2.1rem); color: var(--buc-bosque); line-height: 1.08; margin: 0 0 16px; }
+  .checks { list-style: none; padding: 0; display: grid; gap: 9px; }
+  .checks li { display: flex; gap: 10px; align-items: flex-start; }
+  .checks :global(svg) { width: 20px; height: 20px; flex: none; margin-top: 4px; color: var(--buc-bosque); stroke-width: 3; }
+  .lugares { display: flex; gap: 8px; margin-top: 16px; font-size: 0.92rem; font-weight: 600; color: var(--buc-bosque); }
+  .lugares :global(svg) { width: 18px; height: 18px; flex: none; margin-top: 3px; }
+
+  .jornadas { margin-top: clamp(24px, 3vw, 40px); }
+  .jornadas .canal { background: var(--buc-blanco); }
+  .jor__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 18px 28px; }
+  .jor__lead { margin-top: 14px; color: var(--buc-noche); }
+  .filtros { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filtro { font-family: var(--font-hand); font-size: 1.3rem; min-height: 44px; padding: 4px 16px; border-radius: 999px; border: 2.5px solid var(--buc-bosque); background: var(--buc-blanco); color: var(--buc-bosque); cursor: pointer; transition: background-color var(--dur-fast), color var(--dur-fast); }
+  .filtro:hover { background: var(--buc-lima-100); }
+  .filtro[aria-pressed='true'] { background: var(--buc-bosque); color: var(--buc-blanco); }
+  .jor__grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: clamp(28px, 3vw, 40px); margin-top: clamp(32px, 4vw, 48px); }
+  .jor__grid > li { display: flex; }
+  .jor__grid > li[hidden] { display: none; }
+  .jor__grid :global(.ticket) { width: 100%; }
+  .vacio { font-size: 1.5rem; color: var(--buc-bosque); margin-top: 24px; }
+  .nota { margin-top: 24px; font-size: 0.9rem; color: var(--buc-bosque); }
+  .nota a { color: var(--buc-bosque); font-weight: 600; }
+  .canal { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: clamp(40px, 5vw, 64px); padding: 22px 26px; }
+  .canal p { flex: 1 1 320px; }
+  .canal :global(.canal__icon) { width: 40px; height: 40px; color: var(--buc-bosque); }
+  .cierre__in { text-align: center; display: grid; justify-items: center; gap: 22px; }
+  .cierre__in p { margin-inline: auto; color: var(--buc-noche); }
+  @media (max-width: 960px) {
+    .causas { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; gap: 72px; }
+    .causa { padding-top: 0; margin-top: 80px; }
+    .causa :global(.causa__foto) { position: relative; top: auto; right: auto; width: 66%; margin: -70px 0 22px auto; }
+    .causa__tag { top: -84px; }
+  }
+</style>

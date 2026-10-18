@@ -1,0 +1,112 @@
+/* Buscando un Cambio (BUC) — tokens de marca
+ * Extraídos de @buscandouncambio.pe (511 posts, nov 2021 – oct 2026). Ver BRAND.md.
+ *
+ * Fuentes (Google Fonts):
+ * <link rel="preconnect" href="https://fonts.googleapis.com">
+ * <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ * <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Patrick+Hand&family=Poppins:ital,wght@0,400;0,600;0,700;1,700&family=Sour+Gummy:wght@800;900&display=swap" rel="stylesheet">
+ */
+
+:root {
+  /* ---- Color: marca ---- */
+  --buc-verde-logo: #43D029;    /* sello oficial; solo logo y acentos grandes */
+  --buc-verde: #84CC2C;         /* acento: contornos de títulos, garabatos, subtítulos */
+  --buc-lima: #A6D86C;          /* fondos "papel", polos, tarjetas */
+  --buc-bosque: #185C0C;        /* texto sobre lima/blanco, stickers, botones */
+  --buc-amarillo: #FCDC62;      /* fechas, horarios, resaltados sobre oscuro */
+  --buc-rojo: #E84040;          /* corazones, alertas puntuales */
+  --buc-noche: #161616;         /* fondos oscuros y overlays de foto */
+  --buc-papel: #F7F5EE;         /* marcos polaroid, superficies claras */
+  --buc-blanco: #FFFFFF;
+
+  /* Tonos derivados para UI (no aparecen tal cual en IG) */
+  --buc-bosque-700: #12470A;    /* hover de botones bosque */
+  --buc-lima-100: #EEF7E2;      /* fondo suave de secciones */
+  --buc-lima-300: #CBE9A6;      /* bordes / separadores sobre claro */
+  --buc-gris-600: #4A4A4A;      /* texto secundario sobre claro (8.86:1 en blanco) */
+
+  /* ---- Color: roles ---- */
+  --color-bg: var(--buc-papel);
+  --color-surface: var(--buc-blanco);
+  --color-surface-brand: var(--buc-lima);
+  --color-surface-inverse: var(--buc-noche);
+  --color-text: var(--buc-noche);
+  --color-text-muted: var(--buc-gris-600);
+  --color-text-on-brand: var(--buc-bosque);     /* sobre lima: 4.92:1 (AA) */
+  --color-text-inverse: var(--buc-blanco);
+  --color-heading-accent: var(--buc-verde);     /* solo sobre oscuro: 9.18:1 */
+  --color-link: var(--buc-bosque);
+  --color-cta-bg: var(--buc-bosque);
+  --color-cta-text: var(--buc-blanco);           /* 8.16:1 (AAA) */
+  --color-cta-bg-hover: var(--buc-bosque-700);
+  --color-highlight: var(--buc-amarillo);        /* solo sobre oscuro: 13.4:1 */
+  --color-focus: var(--buc-bosque);
+
+  /* ---- Tipografía ---- */
+  --font-display: "Sour Gummy", "Titan One", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --font-hand: "Patrick Hand", "Gochi Hand", "Comic Sans MS", cursive;
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-brand: "Montserrat", "Poppins", system-ui, sans-serif;  /* firma "BUSCANDO UN CAMBIO" */
+
+  --fw-display: 900;
+  --fw-body: 400;
+  --fw-body-strong: 700;
+  --fw-brand: 600;
+
+  /* Escala fluida (móvil → escritorio) */
+  --fs-hero: clamp(2.5rem, 1.6rem + 4.5vw, 5rem);
+  --fs-h1: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+  --fs-h2: clamp(1.6rem, 1.2rem + 2vw, 2.5rem);
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.8vw, 1.6rem);
+  --fs-hand: clamp(1.25rem, 1.05rem + 1vw, 1.75rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.8125rem;
+
+  --lh-tight: 1.05;    /* títulos display en mayúsculas */
+  --lh-snug: 1.25;
+  --lh-body: 1.6;
+  --ls-display: 0.01em;
+  --ls-brand: 0.08em;  /* "BUSCANDO UN CAMBIO" en Montserrat */
+
+  /* ---- Radios ---- */
+  --radius-xs: 2px;     /* fotos tipo polaroid */
+  --radius-sm: 6px;     /* etiquetas rectangulares (estilo 2025) */
+  --radius-md: 12px;    /* tarjetas */
+  --radius-lg: 24px;    /* paneles de sección */
+  --radius-pill: 999px; /* botones, chips de fecha, sticker "TODO ES POSIBLE" */
+  --radius-circle: 50%; /* sello / avatar */
+
+  /* ---- Sombras ---- */
+  --shadow-polaroid: 0 2px 4px rgb(0 0 0 / 0.12), 0 8px 20px rgb(0 0 0 / 0.14);
+  --shadow-card: 0 1px 2px rgb(22 22 22 / 0.06), 0 6px 18px rgb(22 22 22 / 0.08);
+  --shadow-lift: 0 10px 30px rgb(22 22 22 / 0.18);
+  /* Contorno "sticker" de títulos (texto blanco/verde con borde) */
+  --text-outline-verde: -2px -2px 0 var(--buc-verde), 2px -2px 0 var(--buc-verde), -2px 2px 0 var(--buc-verde), 2px 2px 0 var(--buc-verde);
+  --text-outline-bosque: -2px -2px 0 var(--buc-bosque), 2px -2px 0 var(--buc-bosque), -2px 2px 0 var(--buc-bosque), 2px 2px 0 var(--buc-bosque);
+
+  /* Overlay de foto (estilo 2026: foto oscurecida hacia abajo) */
+  --overlay-photo: linear-gradient(180deg, rgb(22 22 22 / 0.15) 0%, rgb(22 22 22 / 0.35) 45%, rgb(22 22 22 / 0.85) 100%);
+
+  /* ---- Espaciado ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --gutter: 16px;
+  --container: 1200px;
+
+  /* ---- Movimiento ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-base: 0ms; }
+}
